@@ -70,31 +70,31 @@
         }
     }
 
-    function recurAnimMenu (MenuElem) {
-        $(MenuElem).animate({
-            left: '0px'
-        }, 200, 'linear',
-        function () {
+    //function recurAnimMenu (MenuElem) {
+    //    $(MenuElem).animate({
+    //        left: '0px'
+    //    }, 200, 'linear',
+    //    function () {
 
-            if ($(this).attr('id') !== 'home') {//$(this).prev('.menu_item').find('nav_panel').css('left') == 0
-                $(this).prev('.menu_item').find('nav_panel').animate({ left: '-85px' }, 200, 'linear');
-                $(this).prev('.menu_item').find('nav_panel_border').animate({ left: '-85px' }, 200, 'linear',
-                    function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
-            }
+    //        if ($(this).attr('id') !== 'home') {//$(this).prev('.menu_item').find('nav_panel').css('left') == 0
+    //            $(this).prev('.menu_item').find('nav_panel').animate({ left: '-85px' }, 200, 'linear');
+    //            $(this).prev('.menu_item').find('nav_panel_border').animate({ left: '-85px' }, 200, 'linear',
+    //                function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
+    //        }
 
-            $(this).find('.nav_panel').animate({ left: '0px' }, 200, 'linear');
-            $(this).find('.nav_panel_border').animate({ left: '0px' }, 200, 'linear',
-                function () {
-                    $(this).find('.nav_panel_border').animate({ height: '65px', top: '0px' }, 200, 'linear',
-                        function () {
-                            recurAnimMenu($(MenuElem).next('.menu_item'))
-                        })
-                });
-        })
-    }
+    //        $(this).find('.nav_panel').animate({ left: '0px' }, 200, 'linear');
+    //        $(this).find('.nav_panel_border').animate({ left: '0px' }, 200, 'linear',
+    //            function () {
+    //                $(this).find('.nav_panel_border').animate({ height: '65px', top: '0px' }, 200, 'linear',
+    //                    function () {
+    //                        recurAnimMenu($(MenuElem).next('.menu_item'))
+    //                    })
+    //            });
+    //    })
+    //}
 
 
-    var a = setTimeout(recurAnimMenu('#home'), 4700);
-    //$('.menu_item').hover(menuMouseIn, menuMouseOut);
-    //$('.menu_item').click(menuMouseClick);
+    //var a = setTimeout(recurAnimMenu('#home'), 4700);
+    $('.menu_item').hover(menuMouseIn, menuMouseOut);
+    $('.menu_item').click(menuMouseClick);
 });

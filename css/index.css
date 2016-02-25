@@ -30,7 +30,7 @@ nav {
     height: 65px;
     background-color: rgba(23,26,29,.4);
     position: relative;
-    left:-65px;
+    left:0;
     cursor: pointer;
     float: left;
     -moz-transition: background-color .3s linear;
