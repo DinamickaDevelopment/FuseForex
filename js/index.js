@@ -56,7 +56,7 @@
         panel.css({ 'left': '-85px' })
         panelBorder.css({ 'top': '35px', 'height': '0px', 'left': '-85px' })
     }
-    function menuMouseClick() {
+    function menuMouseClick() {//make another orientation for active change
         if (!$(this).hasClass('menu_active')) {
             $('.menu_active').find('.nav_overlay_border').animate({
                 top: '65px',
@@ -70,31 +70,35 @@
         }
     }
 
-    //function recurAnimMenu (MenuElem) {
-    //    $(MenuElem).animate({
-    //        left: '0px'
-    //    }, 200, 'linear',
-    //    function () {
+    a = setTimeout(recurAnimMenu, 4000,'#home');
 
-    //        if ($(this).attr('id') !== 'home') {//$(this).prev('.menu_item').find('nav_panel').css('left') == 0
-    //            $(this).prev('.menu_item').find('nav_panel').animate({ left: '-85px' }, 200, 'linear');
-    //            $(this).prev('.menu_item').find('nav_panel_border').animate({ left: '-85px' }, 200, 'linear',
-    //                function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
-    //        }
+    function recurAnimMenu(MenuElem) {
+        var animTime = 400
+        $(MenuElem).animate({
+            left: '0px'
+        }, animTime, 'linear',
+        function () {
+            if ($(this).attr('id') !== 'home') {
+                $(this).prev('.nav_panel_wraper').find('.nav_panel').animate({ left: '-85px' }, animTime, 'linear');
+                $(this).prev('.nav_panel_wraper').find('.nav_panel_border').animate({ left: '-85px' }, animTime, 'linear',
+                    function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
+            }
 
-    //        $(this).find('.nav_panel').animate({ left: '0px' }, 200, 'linear');
-    //        $(this).find('.nav_panel_border').animate({ left: '0px' }, 200, 'linear',
-    //            function () {
-    //                $(this).find('.nav_panel_border').animate({ height: '65px', top: '0px' }, 200, 'linear',
-    //                    function () {
-    //                        recurAnimMenu($(MenuElem).next('.menu_item'))
-    //                    })
-    //            });
-    //    })
-    //}
-
-
-    //var a = setTimeout(recurAnimMenu('#home'), 4700);
-    $('.menu_item').hover(menuMouseIn, menuMouseOut);
-    $('.menu_item').click(menuMouseClick);
+            $(this).next('.nav_panel_wraper').find('.nav_panel').animate({ left: '0px' }, animTime, 'linear');
+            $(this).next('.nav_panel_wraper').find('.nav_panel_border').animate({ left: '0px' }, animTime, 'linear',
+                function () {
+                    $(this).animate({ height: '65px', top: '0px' }, animTime, 'linear',
+                        function () {
+                            if (MenuElem == '#investing') {
+                                $(MenuElem).next('.nav_panel_wraper').find('.nav_panel').animate({ left: '-85px' }, animTime, 'linear');
+                                $(MenuElem).next('.nav_panel_wraper').find('.nav_panel_border').animate({ left: '-85px' }, animTime, 'linear',
+                                    function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
+                                $('.menu_item').hover(menuMouseIn, menuMouseOut);
+                                $('.menu_item').click(menuMouseClick);
+                            }
+                            recurAnimMenu('#' + $(MenuElem).next().next().attr('id'))
+                        })
+                });
+        })
+    };
 });
