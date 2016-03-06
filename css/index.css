@@ -11,9 +11,6 @@
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
 }
-
-
-
 /* Navigation */
 nav {
     position: absolute;
@@ -30,7 +27,7 @@ nav {
     height: 65px;
     background-color: rgba(23,26,29,.4);
     position: relative;
-    left:-65px;
+    left: -65px;
     cursor: pointer;
     float: left;
     -moz-transition: background-color .3s linear;
@@ -39,31 +36,31 @@ nav {
     transition: background-color .3s linear;
 }
 
-    nav svg {
-        width: 52%;
-        left: 50%;
-        position: relative;
-        top: 50%;
-        -moz-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        -o-transform: translate(-50%,-50%);
-        -webkit-transform: translate(-50%,-50%);
-        transform: translate(-50%,-50%);
-        opacity: 0.4;
-        -moz-transition: opacity 0.2s linear;
-        -o-transition: opacity 0.2s linear;
-        -webkit-transition: opacity 0.2s linear;
-        transition: opacity 0.2s linear;
-    }
+nav svg {
+    width: 52%;
+    left: 50%;
+    position: relative;
+    top: 50%;
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    opacity: 0.4;
+    -moz-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    -webkit-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+}
 
-        nav svg path {
-            fill: #ecf0f1;
-        }
+    nav svg path {
+        fill: #ecf0f1;
+    }
 
 .nav_overlay_border {
     height: 65px;
     width: 0;
-    top:0px;
+    top: 0;
     position: absolute;
     border-left: 1px solid;
     border-color: transparent;
@@ -71,35 +68,36 @@ nav {
     -webkit-background-clip: content-box;
     background-clip: content-box;
 }
-.nav_panel_wraper{
+
+.nav_panel_wraper {
     width: 85px;
     height: 65px;
-    position:relative;
-    top:0;
-    overflow:hidden;
-    cursor:default!important;
+    position: relative;
+    top: 0;
+    overflow: hidden;
+    cursor: default !important;
 }
-.nav_panel_border{    
+
+.nav_panel_border {
     width: 85px;
-    height:0;
-    left:-85px;
-    top:33px;
-    position:absolute;
-    border-right:1px solid;
-    border-color:inherit;
+    height: 0;
+    left: -85px;
+    top: 33px;
+    position: absolute;
+    border-right: 1px solid;
+    border-color: inherit;
 }
+
 .nav_panel {
     width: 85px;
     height: 65px;
-
     text-transform: uppercase;
     line-height: 65px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-    font-size:	0.857em;
-    color:#ecf0f1;
-    font-weight:100;
-
+    font-size: 0.857em;
+    color: #ecf0f1;
+    font-weight: 100;
     position: absolute;
     top: 0;
     left: -85px;
@@ -111,27 +109,33 @@ nav {
     transition: clip .2s linear;
 }
 
-.menu_active{background-color: rgba(23,26,29,.8);}
-.menu_active .nav_overlay_border {
-    border-color: inherit;
+.menu_active {
+    background-color: rgba(23,26,29,.8);
 }
-.menu_item:hover svg,.menu_active svg{opacity:0.8}
+
+    .menu_active .nav_overlay_border {
+        border-color: inherit;
+    }
+
+    .menu_item:hover svg, .menu_active svg {
+        opacity: 0.8;
+    }
 
 
 
-#home+.nav_panel_wraper,#home{
+#home + .nav_panel_wraper, #home {
     border-color: #0691c9;
 }
 
-#services+.nav_panel_wraper,#services {
+#services + .nav_panel_wraper, #services {
     border-color: #f15f40;
 }
 
-#funding+.nav_panel_wraper,#funding{
+#funding + .nav_panel_wraper, #funding {
     border-color: #2cc98f;
 }
 
-#investing+.nav_panel_wraper,#investing{
+#investing + .nav_panel_wraper, #investing {
     border-color: #fbba41;
 }
 
@@ -151,3 +155,227 @@ nav {
     background-color: #fbba41;
 }
 /* Navigation end */
+/*ChipsAnimation*/
+#chipsAnimation {
+    position: relative;
+    background-image: url('../images/chipsiki/chips1bot.png');
+    background-size: cover;
+    height:100%;
+    overflow:hidden;
+}
+
+    #chipsAnimation div {
+        position: absolute;
+    }
+
+.chips_table {
+    background-image: url('../images/table.png');
+    width: 100%;
+    height: 144px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.chips_stack {
+    background-image: url('../images/chips_stack.png');
+    width: 887px;
+    height: 441px;
+    left: 50%;
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.big_1 {
+    background-image: url('../images/chipsiki/Big_1.png');
+    width: 211px;
+    height: 244px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.big_2 {
+    background-image: url('../images/chipsiki/Big_2.png');
+    width: 253px;
+    height: 303px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.big_3 {
+    background-image: url('../images/chipsiki/Big_3.png');
+    width: 433px;
+    height: 361px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.big_4 {
+    background-image: url('../images/chipsiki/Big_4.png');
+    width: 265px;
+    height: 254px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.big_5 {
+    background-image: url('../images/chipsiki/Big_5.png');
+    width: 569px;
+    height: 597px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.big_6 {
+    background-image: url('../images/chipsiki/Big_6.png');
+    width: 378px;
+    height: 369px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+
+.small_1 {
+    background-image: url('../images/chipsiki/small_1.png');
+    width: 978px;
+    height: 400px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.small_2 {
+    background-image: url('../images/chipsiki/small_2.png');
+    width: 1017px;
+    height: 377px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.small_3 {
+    background-image: url('../images/chipsiki/small_3.png');
+    width: 1322px;
+    height: 537px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.small_4 {
+    background-image: url('../images/chipsiki/small_4.png');
+    width: 1078px;
+    height: 425px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.small_5 {
+    background-image: url('../images/chipsiki/small_5.png');
+    width: 1012px;
+    height: 425px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.small_6 {
+    background-image: url('../images/chipsiki/small_6.png');
+    width: 1227px;
+    height: 100%;
+    background-size:cover;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.small_7 {
+    background-image: url('../images/chipsiki/Small_7.png');
+    width: 554px;
+    height: 319px;
+   -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+
+.layer_1 {
+    background-image: url('../images/chipsiki/Layer 1.png');
+    width: 554px;
+    height: 361px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.layer_2 {
+    background-image: url('../images/chipsiki/Layer 2.png');
+    width: 627px;
+    height: 235px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.layer_3 {
+    background-image: url('../images/chipsiki/Layer 3.png');
+    width: 231px;
+    height: 216px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+.layer_4 {
+    background-image: url('../images/chipsiki/Layer 4.png');
+    width: 325px;
+    height: 376px;
+    -moz-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    -o-transform: translate(0px,0px);
+    -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+/*ChipsAnimation end*/

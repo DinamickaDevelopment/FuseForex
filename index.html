@@ -13,8 +13,7 @@
 
 </head>
 <body style="margin:0;padding:0;height:100%;">
-    <div id="Stage" class="Cards_comp">
-    </div>
+    <div id="Stage" class="Cards_comp"></div>
     <nav>
         <div id="home" class="menu_item">
             <div class="nav_overlay_border"></div>
@@ -49,7 +48,27 @@
             <div class="nav_panel_border"></div>
         </div>
     </nav>
-
+    <section id="chipsAnimation">
+        <!--<div class="chips_stack"></div>
+        <div class="chips_table"></div>-->
+        <!--<div class="big_1" data-0p="transform:translate(0px, 0%) scale(1);" data-100p="transform:translate(0px, 60%) scale(1);"></div>
+        <div class="big_2"></div>
+        <div class="big_3"></div>
+        <div class="big_4"></div>
+        <div class="big_5"></div>
+        <div class="big_6"></div>
+        <div class="layer_1"></div>
+        <div class="layer_2"></div>
+        <div class="layer_3"></div>
+        <div class="layer_4"></div>-->
+        <div class="small_1" data-0p="transform: translate(233px,35px)  scale(1)" data-100p="transform:translate(233px, 240px) scale(1);"></div>
+        <div class="small_2" data-0p="transform: translate(44px,1px);" data-100p="transform: translate(150pxpx,255px);"></div>
+        <div class="small_3" data-0p="transform: translate(0px,0px);" data-100p="transform: translate(30px,150px);"></div>
+        <div class="small_4" data-0p="transform: translate(0px,0px);" data-100p="transform: translate(60px,200px);"></div>
+        <!--<div class="small_5"></div>
+        <div class="small_6"></div>
+        <div class="small_7"></div>-->
+    </section>
 
 
 
@@ -59,10 +78,18 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/jquery.smoothwheel.js"></script>
     <!-- Custom JS -->
     <script src="js/index.js"></script>
     <!-- Adobe JS -->
     <script type="text/javascript" charset="utf-8" src="edge_includes/edge.6.0.0.min.js"></script>
+
+    <script src="js/skrollr.js"></script>
+    <script type="text/javascript">
+        skrollr.init({
+            forceHeight: false
+        });
+    </script>
     <script>
         AdobeEdge.loadComposition('Cards_v1.21', 'Cards_comp', {
             scaleToFit: "none",
@@ -73,5 +100,6 @@
             height: "100%"
         }, { "style": { "${symbolSelector}": { "isStage": "true", "rect": ["undefined", "undefined", "1900px", "900px"], "fill": ["rgba(255,255,255,1)"] } }, "dom": {} }, { "style": { "${symbolSelector}": { "isStage": "true", "rect": ["undefined", "undefined", "1900px", "900px"], "fill": ["rgba(255,255,255,1)"] } }, "dom": {} });
     </script>
+    <script src="js/howManyScroll.js"></script>
 </body>
 </html>

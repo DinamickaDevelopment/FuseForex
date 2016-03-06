@@ -56,21 +56,33 @@
         panel.css({ 'left': '-85px' })
         panelBorder.css({ 'top': '35px', 'height': '0px', 'left': '-85px' })
     }
+
     function menuMouseClick() {//make another orientation for active change
         if (!$(this).hasClass('menu_active')) {
-            $('.menu_active').find('.nav_overlay_border').animate({
-                top: '65px',
-                height: '0px'
-            }, 300, 'linear',
-        function () {
-            $(this).parent().removeClass('menu_active');
-            $(this).css({ 'top': '0px', 'height': '65px' })
-        })
-            $(this).addClass('menu_active');
+            if ($('.menu_item').index($(this)) > $('.menu_item').index($('.menu_active'))) {//check up or down anumation
+                $('.menu_active').find('.nav_overlay_border').animate({
+                    top: '65px',
+                    height: '0px'
+                }, 300, 'linear',
+                function () {
+                    $(this).parent().removeClass('menu_active');
+                    $(this).css({ 'top': '0px', 'height': '65px' })
+                })
+                $(this).addClass('menu_active');
+            }
+            else {
+                $('.menu_active').find('.nav_overlay_border').animate({
+                    top: '0px',
+                    height: '0px'
+                }, 300, 'linear',
+                function () {
+                    $(this).parent().removeClass('menu_active');
+                    $(this).css({ 'top': '0px', 'height': '65px' })
+                })
+                $(this).addClass('menu_active');
+            }
         }
     }
-
-    a = setTimeout(recurAnimMenu, 4000,'#home');
 
     function recurAnimMenu(MenuElem) {
         var animTime = 400
@@ -82,6 +94,8 @@
                 $(this).prev('.nav_panel_wraper').find('.nav_panel').animate({ left: '-85px' }, animTime, 'linear');
                 $(this).prev('.nav_panel_wraper').find('.nav_panel_border').animate({ left: '-85px' }, animTime, 'linear',
                     function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
+            } else {
+                $(this).addClass('menu_active')
             }
 
             $(this).next('.nav_panel_wraper').find('.nav_panel').animate({ left: '0px' }, animTime, 'linear');
@@ -101,4 +115,11 @@
                 });
         })
     };
+
+
+    a = setTimeout(recurAnimMenu, 4000, '#home');
+
+    //Smooth Scroll
+    $("body").smoothWheel()
+
 });
