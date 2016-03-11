@@ -1,4 +1,16 @@
 ﻿$(window).ready(function () {
+    function cBrowser() {
+        var ua = navigator.userAgent;
+            if (ua.search(/MSIE/) > -1) return "ie";
+            if (ua.search(/Firefox/) > -1) return "firefox";
+            if (ua.search(/Opera/) > -1) return "opera";
+            if (ua.search(/Chrome/) > -1) return "chrome";
+            if (ua.search(/Safari/) > -1) return "safari";
+            if (ua.search(/Konqueror/) > -1) return "konqueror";
+            if (ua.search(/Iceweasel/) > -1) return "iceweasel";
+            if (ua.search(/SeaMonkey/) > -1) return "seamonkey";
+        }
+    console.log(cBrowser());
     function menuMouseIn() {// handlerIn
         var overlay = $(this).children('.nav_overlay_border'), panel = $(this).next().find('.nav_panel'), panelBorder = $(this).next().find('.nav_panel_border');
         overlay.animate({//show colorful part
@@ -91,8 +103,8 @@
         }, animTime, 'linear',
         function () {
             if ($(this).attr('id') !== 'home') {
-                $(this).prev('.nav_panel_wraper').find('.nav_panel').animate({ left: '-85px' }, animTime, 'linear');
-                $(this).prev('.nav_panel_wraper').find('.nav_panel_border').animate({ left: '-85px' }, animTime, 'linear',
+                $(this).prev().prev('.nav_panel_wraper').find('.nav_panel').animate({ left: '-85px' }, animTime, 'linear');
+                $(this).prev().prev('.nav_panel_wraper').find('.nav_panel_border').animate({ left: '-85px' }, animTime, 'linear',
                     function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
             } else {
                 $(this).addClass('menu_active')
@@ -110,16 +122,14 @@
                                 $('.menu_item').hover(menuMouseIn, menuMouseOut);
                                 $('.menu_item').click(menuMouseClick);
                             }
-                            recurAnimMenu('#' + $(MenuElem).next().next().attr('id'))
+                            recurAnimMenu('#' + $(MenuElem).next().next().next().attr('id'))//dont touch, some kind of magick!
                         })
                 });
         })
     };
 
-
+    if (cBrowser() !== 'firefox') {
+        $("body").smoothWheel();
+    }
     a = setTimeout(recurAnimMenu, 4000, '#home');
-
-    //Smooth Scroll
-    $("body").smoothWheel()
-
 });
