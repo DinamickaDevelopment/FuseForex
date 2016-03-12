@@ -335,6 +335,7 @@ nav svg {
     background-image: url('../images/chipsiki/chips1bot.png');
     background-size:cover;
     position: absolute;
+    width:100%;
     top: 250%;
     z-index: 20;
 }
