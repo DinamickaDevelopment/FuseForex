@@ -71,13 +71,18 @@
         <div class="layer_2"    data-0p="top:-52%; left:18%;" data-300p="top:100%; left:24%;"></div>
         <div class="layer_3"    data-0p="top:-35%; left:29%;" data-300p="top:100%; left:33%;"></div>
         <div class="layer_4"    data-0p="top:-47%; left:65%;" data-300p="top:105%; left:60%;"></div>
-        <!--
-        <div class="small_5" data-30p="top:10%; left:10%;" data-100p="top:20%; left:13%;"></div>
-        <div class="small_6" data-30p="top:0%; left:9%;" data-100p="top:10%; left:9%;"></div>
-        <div class="small_7" data-30p="top:20%; left:40%;" data-100p="top:35%; left:40%;"></div>-->
     </section>
-    <section id="services_container">
-
+    <section id="content">
+        <div class="content_wraper">
+            <div class="content_panel cpanel1"></div>
+            <div class="content_panel_wraper">
+                <div class="content_panel cpanel2"></div>
+                <div class="content_panel_row">
+                    <div class="content_panel cpanel3"></div>
+                    <div class="content_panel cpanel4"></div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- jQuery Js -->
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -93,14 +98,13 @@
     <script src="js/jquery.smoothwheel.js"></script>
 
     <script type="text/javascript">
-        $().ready(function () {
+        $(window).ready(function () {
             skrollr.init({
                 forceHeight: false
             });
-
+            //window.scrollTo(0, top);
         })
-
-    </script>
+        </script>
     <script>
         AdobeEdge.loadComposition('Cards_v1.21', 'Cards_comp', {
             scaleToFit: "none",

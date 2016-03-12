@@ -1,4 +1,8 @@
-﻿$(window).ready(function () {
+﻿
+
+
+$(window).ready(function () {
+    //Browser check
     function cBrowser() {
         var ua = navigator.userAgent;
             if (ua.search(/MSIE/) > -1) return "ie";
@@ -9,8 +13,46 @@
             if (ua.search(/Konqueror/) > -1) return "konqueror";
             if (ua.search(/Iceweasel/) > -1) return "iceweasel";
             if (ua.search(/SeaMonkey/) > -1) return "seamonkey";
+    }
+    //Manipulate with scroll
+    var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+
+    function preventDefault(e) {
+        e = e || window.event;
+        if (e.preventDefault)
+            e.preventDefault();
+        e.returnValue = false;
+    }
+
+    function preventDefaultForScrollKeys(e) {
+        if (keys[e.keyCode]) {
+            preventDefault(e);
+            return false;
         }
+    }
+
+    function disableScroll(bool) {
+        if (bool) {
+            //if (window.addEventListener) // older FF
+            //    window.addEventListener('DOMMouseScroll', preventDefault, false);
+            window.onwheel = preventDefault; // modern standard
+            window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+            window.ontouchmove = preventDefault; // mobile
+            document.onkeydown = preventDefaultForScrollKeys;
+        } else {
+            //if (window.removeEventListener)
+            //    window.removeEventListener('DOMMouseScroll', preventDefault, false);
+            window.onmousewheel = document.onmousewheel = null;
+            window.onwheel = null;
+            window.ontouchmove = null;
+            document.onkeydown = null;
+        }
+    }
+
+
+
     console.log(cBrowser());
+    //Menu animation
     function menuMouseIn() {// handlerIn
         var overlay = $(this).children('.nav_overlay_border'), panel = $(this).next().find('.nav_panel'), panelBorder = $(this).next().find('.nav_panel_border');
         overlay.animate({//show colorful part
@@ -96,6 +138,7 @@
         }
     }
 
+    //entry menu animation
     function recurAnimMenu(MenuElem) {
         var animTime = 400
         $(MenuElem).animate({
@@ -121,6 +164,10 @@
                                     function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
                                 $('.menu_item').hover(menuMouseIn, menuMouseOut);
                                 $('.menu_item').click(menuMouseClick);
+                                //disableScroll(false);
+                                if (cBrowser() !== 'firefox') {
+                                    $("body").smoothWheel();
+                                }
                             }
                             recurAnimMenu('#' + $(MenuElem).next().next().next().attr('id'))//dont touch, some kind of magick!
                         })
@@ -128,8 +175,6 @@
         })
     };
 
-    if (cBrowser() !== 'firefox') {
-        $("body").smoothWheel();
-    }
     a = setTimeout(recurAnimMenu, 4000, '#home');
+    //disableScroll(true);
 });
