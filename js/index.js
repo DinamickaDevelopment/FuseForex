@@ -2,6 +2,7 @@
 
 
 $(window).ready(function () {
+    var firstanim = true,inProgress=false;
     //Browser check
     function cBrowser() {
         var ua = navigator.userAgent;
@@ -136,6 +137,18 @@ $(window).ready(function () {
                 $(this).addClass('menu_active');
             }
         }
+        if ($(this).attr('id') == 'home') {//if pressed HOME we scroll to top of page
+            $('body,html').animate({ scrollTop: 0 }, 1500, 'linear');
+        } else {//in other case we check viewport positiin
+            if (window.pageYOffset !== Math.round($('#content').offset().top)) {//if viewport not in content section then scroll to section
+                var ContentTop = Math.round($('#content').offset().top), actor = this;
+                $('body,html').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
+                    contentAnimation(actor);
+                });
+            } else {//in other case start content animation
+                contentAnimation(this);
+            }
+        }
     }
 
     //entry menu animation
@@ -164,7 +177,7 @@ $(window).ready(function () {
                                     function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
                                 $('.menu_item').hover(menuMouseIn, menuMouseOut);
                                 $('.menu_item').click(menuMouseClick);
-                                //disableScroll(false);
+                                disableScroll(false);
                                 if (cBrowser() !== 'firefox') {
                                     $("body").smoothWheel();
                                 }
@@ -175,6 +188,81 @@ $(window).ready(function () {
         })
     };
 
+    //Content Animation
+    function contentAnimation(target) {
+        if (!inProgress) {
+            inProgress = true;
+            if (firstanim) {
+                $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, 1000, 'linear',
+                    function () {
+                        $('#content').removeClass();
+                        $('#content').addClass($(target).attr('id') + 'Color');
+                        $('.cpanel1').addClass('cpanel_sefborder_left');
+                        $(this).css({'top':'50%','height':'0'})
+                        $('.cpanel1').animate({ width: '30%' }, 1000, 'linear',
+                            function () {
+                                $('.content_cpanel2_border').css({ 'left': '-' + $('.content_panel_wraper').css('padding-left'), 'opacity': '1' })
+                                $('.content_cpanel2_border').animate({ left: '-1px' }, 600, 'linear',
+                                    function () {
+                                        $(this).css({'height':'0'});
+                                        $('.cpanel2').addClass('cpanel_sefborder_left');
+                                        $('.cpanel2').animate({ width: '100%' }, 1000, 'linear',
+                                            function () {
+                                                $('.content_cpanel4_border').css({ 'top': '-' + $('.cpanel2').css('margin-bottom'), 'opacity': '1' })
+                                                $('.content_cpanel4_border').animate({ top: '-1px' }, 600, 'linear',
+                                                    function () {
+                                                        $(this).css({ 'width': '0' });
+                                                        $('.cpanel4').addClass('cpanel_sefborder_top');
+                                                        $('.cpanel4').animate({ height: '100%' }, 1000, 'linear',
+                                                            function () {
+                                                            $('.content_cpanel3_border').css({ 'right': -Math.round($('.content_panel_wraper').width()*0.04), 'opacity': '1' })
+                                                            $('.content_cpanel3_border').animate({right:'-1px'}, 600, 'linear',
+                                                                function () {
+                                                                    $(this).css({ 'height': '0' });
+                                                                    $('.cpanel3').addClass('cpanel_sefborder_right');
+                                                                    $('.cpanel3').animate({width:'34%',left:'0'}, 1000, 'linear',
+                                                                        function () { inProgress = false; firstanim = false;})
+
+                                                                })
+                                                        })
+                                                    })
+
+                                            })
+                            })
+                        })
+                    })
+            } else {
+                $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').addClass($(target).attr('id') + 'Color')
+                var speedBorder=800
+
+                $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, speedBorder-1, 'linear',
+                    function () {
+                        $('#content').removeClass();
+                        $('#content').addClass($(target).attr('id') + 'Color');
+                        $(this).css({ 'top': '50%', 'height': '0' });
+                        $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').removeClass($(target).attr('id') + 'Color')
+                        inProgress = false;
+                    })
+
+                $('.content_cpanel2_border').animate({ height: '100%' }, speedBorder, 'linear',
+                    function () {
+                        $(this).css({ 'height': '0' });
+                    })
+
+                $('.content_cpanel4_border').animate({ width: '100%' }, speedBorder, 'linear',
+                    function () {
+                        $(this).css({ 'width': '0' });
+                    })
+
+                $('.content_cpanel3_border').animate({ height: '100%' }, speedBorder, 'linear',
+                    function () {
+                        $(this).css({ 'height': '0' });
+                    })
+            }
+        }
+
+    }
+
     a = setTimeout(recurAnimMenu, 4000, '#home');
-    //disableScroll(true);
+    disableScroll(true);
 });

@@ -6,6 +6,11 @@
 /*
     Tehcnical classes
 */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 #Stage, #Stage div {
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
@@ -197,13 +202,8 @@ nav svg {
     background-image: url('../images/chipsiki/chips_stack.png');
     width: 887px;
     height: 441px;
-    left: 50%;
-    position: absolute;
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    position: relative;
+    margin:0 auto;
 }
 
 .big_1 {
@@ -340,55 +340,122 @@ nav svg {
     z-index: 20;
 }
 .content_wraper {
-    width: calc(100% - 298px); /*необходимо что-бы граница блока совпала с рамкой меню на ноутбуках и десктопах*/
+    width: calc(100% - 297px); /*необходимо что-бы граница блока совпала с рамкой меню на ноутбуках и десктопах*/
     height: 100%;
-    position: absolute;
-    left: 50%;
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    margin:0 auto;
+    border-color:inherit;
 }
 .content_panel_wraper {
     width: 70%;
-    height: 92%;
+    height: 100%;
     float: right;
     position: relative;
-    top: 50%;
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    padding-left:2.4%;
+    padding:2% 0 2% 2%;
+    border-color:inherit;
 }
 .content_panel_row{
     width: 100%;
     height: 51%;
     float: right;
+    border-color:inherit;
 }
 .content_panel{background-color:rgba(23,26,29,.8)}
+
+
+.content_border_holder {
+    height: 100%;
+    position: absolute;
+    left:-1px;
+}
+.content_border{    
+    height:0;
+    border-left: 1px solid;
+    position: absolute;
+    top:50%;
+}
+
+.brservices {
+    border-color: #f15f40;
+    -moz-transform: translateY(-65px);
+    -ms-transform: translateY(-65px);
+    -o-transform: translateY(-65px);
+    -webkit-transform: translateY(-65px);
+    transform: translateY(-65px);
+}
+.brfunding{
+    border-color: #2cc98f;
+
+}
+.brinvesting {
+    border-color: #fbba41;
+    -moz-transform: translateY(65px);
+    -ms-transform: translateY(65px);
+    -o-transform: translateY(65px);
+    -webkit-transform: translateY(65px);
+    transform: translateY(65px);
+}
+
+.servicesColor{border-color: #f15f40!important;}
+.fundingColor{border-color: #2cc98f!important;}
+.investingColor{border-color: #fbba41!important;}
+.cpanel_sefborder_left{border-left: 1px solid;}
+.cpanel_sefborder_top{border-top: 1px solid;}
+.cpanel_sefborder_right{border-right: 1px solid;}
 .cpanel1{    
-    width: 30%;
+    width: 0;/*30%*/
     height: 100%;
     float: left;
+    position:relative;
+    border-color: inherit;
 }
+
 .cpanel2{
-    width: 100%;
+    position:relative;
+    width: 0;
     height: 45%;
-    float: right;
-    margin-bottom:3.5%
-    
+    float: left;
+    border-color: inherit;
+    margin-bottom:3.5%;
 }
+.content_cpanel2_border{
+    border-left: 1px solid;
+    border-color: inherit; 
+    height: 100%;
+    opacity:0;
+    width: 1px;
+    position: absolute;
+}
+
 .cpanel3{
-    width: 34%;
+    width: 0;
     height: 100%;
     float: left;
+    position:relative;
+    border-color: inherit;
+    left:34%;
+
+}
+.content_cpanel3_border{
+    border-right: 1px solid;
+    border-color: inherit;
+    opacity:0;
+    height: 100%;
+    position: absolute;
+    right: -1px;
 }
 .cpanel4{
     width: 62%;
-    height: 100%;
+    height: 0;
     float: right;
+    position:relative;
+    border-color: inherit;
+}
+.content_cpanel4_border{
+    border-top: 1px solid;
+    border-color: inherit; 
+    width: 100%;
+    opacity:0;
+    top:-1px;
+    position: absolute;
 }
 /*content end*/

@@ -9,10 +9,10 @@
 (function ($) {
 
     var self = this, container, running=false, currentY = 0, targetY = 0, oldY = 0, maxScrollTop= 0, minScrollTop, direction, onRenderCallback=null,
-            fricton = 0.95, // higher value for slower deceleration
+            fricton = 0.7, // higher value for slower deceleration
             vy = 0,
-            stepAmt = 1,
-            minMovement= 0.1,
+            stepAmt = 3,
+            minMovement= 0.4,
             ts=0.1;
 
     var updateScrollTarget = function (amt) {
@@ -37,11 +37,6 @@
             container.scrollTop(-currentY);
 
             vy *= fricton;
-            
-         //   vy += ts * (currentY-targetY);
-            // scrollTopTweened += settings.tweenSpeed * (scrollTop - scrollTopTweened);
-            // currentY += ts * (targetY - currentY);
-
             if(onRenderCallback){
                 onRenderCallback();
             }
