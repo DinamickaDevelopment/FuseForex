@@ -13,7 +13,8 @@
 <body style="margin:0;padding:0;height:100%;">
     <div id="Stage" class="Cards_comp"></div>
     <div class="bg-nonlayer" data-0p="opacity:0;" data-1p="opacity:1;">
-        <div class="chips_stack" data-20p="opacity:1; top:43%;" data-50p="opacity:0; top:47%;"></div>
+        <!-- проблема с высотой фишек на ФУЛЛхд оптимальные значения старт:61% - финиш:73% -->
+        <div class="chips_stack" data-20p="opacity:1; top:43%;" data-50p="opacity:0; top:73%;"></div>
         <div class="chips_table"></div>
     </div>
     <nav>
@@ -65,10 +66,10 @@
         <div class="small_2" data-80p="top:-34%; left:15%;" data-250p="top:100%; left:10%;"></div>
         <div class="small_3" data-45p="top:-39%; left:0%;" data-250p="top:100%; left:3%;"></div>
         <div class="small_4" data-35p="top:-27%; left:20%;" data-250p="top:100%; left:20%;"></div>
-        <div class="layer_1"    data-0p="top:-27%; left:20%;" data-300p="top:100%; left:20%;"></div>
-        <div class="layer_2"    data-0p="top:-52%; left:18%;" data-300p="top:100%; left:24%;"></div>
-        <div class="layer_3"    data-0p="top:-35%; left:29%;" data-300p="top:100%; left:33%;"></div>
-        <div class="layer_4"    data-0p="top:-47%; left:65%;" data-300p="top:105%; left:60%;"></div>
+        <div class="layer_1" data-0p="top:-27%; left:20%;" data-300p="top:100%; left:20%;"></div>
+        <div class="layer_2" data-0p="top:-52%; left:18%;" data-300p="top:100%; left:24%;"></div>
+        <div class="layer_3" data-0p="top:-35%; left:29%;" data-300p="top:100%; left:33%;"></div>
+        <div class="layer_4" data-0p="top:-47%; left:65%;" data-300p="top:105%; left:60%;"></div>
     </section>
     <section id="content" class="servicesColor">
         <div class="content_wraper">
@@ -78,33 +79,131 @@
                     <div class="content_border brfunding"></div>
                     <div class="content_border brinvesting"></div>
                 </div>
-                <!--<div class="content_cpanel1">
+                <div class="content_cpanel1">
                     <div class="content_cpanel1_services">
-
+                        <h2>SERVICES</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
                     </div>
-                    <div class="content_cpanel1_funding-cont">
-
+                    <div class="content_cpanel1_funding">
+                        <h2>FUNDING</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
                     </div>
-                    <div class="content_cpanel1_investing-cont">
-
+                    <div class="content_cpanel1_investing">
+                        <h2>INVESTING</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
                     </div>
-                </div>-->
+                </div>
             </div>
             <div class="content_panel_wraper">
                 <div class="content_panel cpanel2">
-                    <div class="content_cpanel2_border">
+                    <div class="content_cpanel2_border"></div>
+                    <div class="content_cpanel2">
+                        <div class="content_cpanel2_services">
+                            <div class="cpanel2_services_counter">
+                                <span class="cpanel2_services_numeric">34%</span> profitable
+                            </div>
+                            <div class="cpanel2_services_speedometers">
+                                <div class="cpanel2_services_speedometer_winers">
+                                    <div class="speedometers_winers">
+                                        <span class="speedText">0</span>
+                                        <div class="speedArrow"></div>
+                                        <div class="speedDot"></div>
+                                    </div>
+                                    <p class="speedometers_text">WINNERS</p>
+                                </div>
+                                <div class="cpanel2_services_speedometer_losers">
+                                    <div class="speedometers_losers">
+                                        <span class="speedText">0</span>
+                                        <div class="speedArrow"></div>
+                                        <div class="speedDot"></div>
+                                    </div>
+                                    <p class="speedometers_text">LOSERS</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_cpanel2_funding">
+                            <div class="cpanel2_funding_counter"><span class="cpanel2_funding_numeric">75%</span> Funding</div>
+                            <div class="cpanel2_funding_money">
+                                <div class="cpanel2_funding_money_bank">
+                                    <div class="money_bank"></div>
+                                    <div class="moneyText">BANK</div>
+                                </div>
+                                <div class="cpanel2_funding_money_flying">
+                                    <div class="banknotes"></div>
+                                </div>
+                                <div class="cpanel2_funding_money_trader">
+                                    <div class="money_trader">
+                                        <div class="money_trader_full"></div>
+                                    </div>
+                                    <div class="moneyText">TRADER</div>
 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_cpanel2_investing">
+                            <div class="cpanel2_investing_counter"><span class="cpanel2_investing_numeric">80%</span> Invested</div>
+                            <div class="cpanel2_investing_graphics">
+                                <div class="cpanel2_investing_graphics_moneybox">
+                                    <div class="graphics_moneybox">
+                                        <img src="images/dev_ass/Investing/piggy.png" width="135" height="105" alt="Money Box" title="Money Box" />
+                                    </div>
+                                </div>
+                                <div class="cpanel2_investing_graphics_grafick">
+                                    <div class="graphics_grafick">
+                                        <svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 274.1 166.9" xml:space="preserve"><g id="chart"><polyline id="line" fill="none" style="stroke-dasharray: 465;stroke-dashoffset: 0;" stroke="#FCB941" stroke-width="3" stroke-linecap="round" stroke-miterlimit="12" points="5.6,161.5 15.6,141.5 25.6,151.5 35.6,121.5 45.6,121.5 55.6,91.5 65.6,111.5 75.6,101.5 85.6,81.5 95.6,91.5 105.6,101.5 115.6,101.5 125.6,81.5 135.6,81.5 145.6,61.5 155.6,61.5 165.6,51.5 175.6,31.5 185.6,51.5 195.6,61.5 205.6,31.5 215.6,11.5 225.6,31.5 245.6,9.5 255.6,1.5" /></g></svg>
+                                    </div>
+                                    <div class="graphics_text">PROFITS</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="content_panel_row">
                     <div class="content_panel cpanel3">
-                        <div class="content_cpanel3_border">
+                        <div class="content_cpanel3_border"></div>
+                        <div class="content_cpanel3_services">
+                            <div class="cpanel3_any_wraper">
+                                <div class="cpanel3_any_text">Day <span class="services_text_number">3</span></div>
+                                <div class="cpanel3_any_spiner">
+                                    <img src="images/dev_ass/Gauges/ticker_orange.png" width="202" height="202" alt="Spiner" />
+                                </div>
+                            </div>
                         </div>
+                        <div class="content_cpanel3_funding">
+                            <div class="cpanel3_any_wraper">
+                                <div class="cpanel3_any_text">Month <span class="funding_text_number">8</span></div>
+                                <div class="cpanel3_any_spiner">
+                                    <img src="images/dev_ass/Gauges/ticker_green.png" width="202" height="202" alt="Spiner" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_cpanel3_investing">
+                            <div class="cpanel3_any_wraper">
+                                <div class="cpanel3_any_text">Year <span class="investing_text_number">1</span></div>
+                                <div class="cpanel3_any_spiner">
+                                    <img src="images/dev_ass/Gauges/ticker_yellow.png" width="202" height="202" alt="Spiner" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- http://codepen.io/HugoGiraudel/pen/BHEwo - анимация заполнения круга -->
                     </div>
                     <div class="content_panel cpanel4">
-                        <div class="content_cpanel4_border">
-
+                        <div class="content_cpanel4_border"></div>
+                        <!--<div class="content_cpanel4_wraper">
+                            <div class="content_cpanel4_services">
+                                <div class="cpanel4_services_title">Nearly <span class="cpanel4_services_titleNumber">45%</span></div>
+                                <div class="cpanel4_services_explain">of all retail trades lose money</div>
+                            </div>
+                            <div class="content_cpanel4_funding">
+                                <div class="cpanel4_services_title">Nearly <span class="cpanel4_services_titleNumber">40</span></div>
+                                <div class="cpanel4_services_explain">trader capacity funding with partners</div>
+                            </div>
+                            <div class="content_cpanel4_investing">
+                                <div class="cpanel4_investing_title">Nearly <span class="cpanel4_investing_titleNumber">9</span></div>
+                                <div class="cpanel4_services_explain">investable trading programs</div>
+                            </div>
                         </div>
+                        <div class="content_cpanel4_hiddenPanel"></div>-->
                     </div>
                 </div>
             </div>
@@ -127,7 +226,7 @@
             });
             //window.scrollTo(0, top);
         })
-        </script>
+    </script>
     <script>
         AdobeEdge.loadComposition('Cards_v1.21', 'Cards_comp', {
             scaleToFit: "none",

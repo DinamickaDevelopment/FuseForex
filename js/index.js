@@ -2,18 +2,18 @@
 
 
 $(window).ready(function () {
-    var firstanim = true,inProgress=false;
+    var firstanim = true, inProgress = false;
     //Browser check
     function cBrowser() {
         var ua = navigator.userAgent;
-            if (ua.search(/MSIE/) > -1) return "ie";
-            if (ua.search(/Firefox/) > -1) return "firefox";
-            if (ua.search(/Opera/) > -1) return "opera";
-            if (ua.search(/Chrome/) > -1) return "chrome";
-            if (ua.search(/Safari/) > -1) return "safari";
-            if (ua.search(/Konqueror/) > -1) return "konqueror";
-            if (ua.search(/Iceweasel/) > -1) return "iceweasel";
-            if (ua.search(/SeaMonkey/) > -1) return "seamonkey";
+        if (ua.search(/MSIE/) > -1) return "ie";
+        if (ua.search(/Firefox/) > -1) return "firefox";
+        if (ua.search(/Opera/) > -1) return "opera";
+        if (ua.search(/Chrome/) > -1) return "chrome";
+        if (ua.search(/Safari/) > -1) return "safari";
+        if (ua.search(/Konqueror/) > -1) return "konqueror";
+        if (ua.search(/Iceweasel/) > -1) return "iceweasel";
+        if (ua.search(/SeaMonkey/) > -1) return "seamonkey";
     }
     //Manipulate with scroll
     var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
@@ -114,6 +114,7 @@ $(window).ready(function () {
 
     function menuMouseClick() {//make another orientation for active change
         if (!$(this).hasClass('menu_active')) {
+            var oldBlock = $('.menu_active').attr('id');
             if ($('.menu_item').index($(this)) > $('.menu_item').index($('.menu_active'))) {//check up or down anumation
                 $('.menu_active').find('.nav_overlay_border').animate({
                     top: '65px',
@@ -143,10 +144,10 @@ $(window).ready(function () {
             if (window.pageYOffset !== Math.round($('#content').offset().top)) {//if viewport not in content section then scroll to section
                 var ContentTop = Math.round($('#content').offset().top), actor = this;
                 $('body,html').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
-                    contentAnimation(actor);
+                    contentAnimation(actor,oldBlock);
                 });
             } else {//in other case start content animation
-                contentAnimation(this);
+                contentAnimation(this,oldBlock);
             }
         }
     }
@@ -189,7 +190,7 @@ $(window).ready(function () {
     };
 
     //Content Animation
-    function contentAnimation(target) {
+    function contentAnimation(target,old) {
         if (!inProgress) {
             inProgress = true;
             if (firstanim) {
@@ -198,16 +199,21 @@ $(window).ready(function () {
                         $('#content').removeClass();
                         $('#content').addClass($(target).attr('id') + 'Color');
                         $('.cpanel1').addClass('cpanel_sefborder_left');
-                        $(this).css({'top':'50%','height':'0'})
+                        $(this).css({ 'top': '50%', 'height': '0' })
                         $('.cpanel1').animate({ width: '30%' }, 1000, 'linear',
                             function () {
+                                $('.content_cpanel1_' + $(target).attr('id') + ' h2').animate({ opacity: 1 }, 500, 'linear',//Content itself
+                                    function () {
+                                        $('.content_cpanel1_' + $(target).attr('id') + ' p').animate({ opacity: 1 }, 500, 'linear')
+                                    });
                                 $('.content_cpanel2_border').css({ 'left': '-' + $('.content_panel_wraper').css('padding-left'), 'opacity': '1' })
                                 $('.content_cpanel2_border').animate({ left: '-1px' }, 600, 'linear',
                                     function () {
-                                        $(this).css({'height':'0'});
+                                        $(this).css({ 'height': '0' });
                                         $('.cpanel2').addClass('cpanel_sefborder_left');
                                         $('.cpanel2').animate({ width: '100%' }, 1000, 'linear',
                                             function () {
+                                                $('.content_cpanel2_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear')//Content itself
                                                 $('.content_cpanel4_border').css({ 'top': '-' + $('.cpanel2').css('margin-bottom'), 'opacity': '1' })
                                                 $('.content_cpanel4_border').animate({ top: '-1px' }, 600, 'linear',
                                                     function () {
@@ -215,27 +221,43 @@ $(window).ready(function () {
                                                         $('.cpanel4').addClass('cpanel_sefborder_top');
                                                         $('.cpanel4').animate({ height: '100%' }, 1000, 'linear',
                                                             function () {
-                                                            $('.content_cpanel3_border').css({ 'right': -Math.round($('.content_panel_wraper').width()*0.04), 'opacity': '1' })
-                                                            $('.content_cpanel3_border').animate({right:'-1px'}, 600, 'linear',
-                                                                function () {
-                                                                    $(this).css({ 'height': '0' });
-                                                                    $('.cpanel3').addClass('cpanel_sefborder_right');
-                                                                    $('.cpanel3').animate({width:'34%',left:'0'}, 1000, 'linear',
-                                                                        function () { inProgress = false; firstanim = false;})
+                                                                $('.content_cpanel3_border').css({ 'right': -Math.round($('.content_panel_wraper').width() * 0.04), 'opacity': '1' })
+                                                                $('.content_cpanel3_border').animate({ right: '-1px' }, 600, 'linear',
+                                                                    function () {
+                                                                        $(this).css({ 'height': '0' });
+                                                                        $('.cpanel3').addClass('cpanel_sefborder_right');
+                                                                        $('.cpanel3').animate({ width: '34%', left: '0' }, 1000, 'linear',
+                                                                            function () {
+                                                                                $('.content_cpanel3_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear')
+                                                                                inProgress = false; firstanim = false;
+                                                                            })
 
-                                                                })
-                                                        })
+                                                                    })
+                                                            })
                                                     })
 
                                             })
+                                    })
                             })
-                        })
                     })
             } else {
-                $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').addClass($(target).attr('id') + 'Color')
-                var speedBorder=800
+                $('.content_cpanel1_' + old + ' h2, .content_cpanel1_' + old + ' p').animate({ opacity: 0 }, 500, 'linear',
+                    function () {
+                        $('.content_cpanel1_' + $(target).attr('id') + ' h2,.content_cpanel1_' + $(target).attr('id') + ' p').animate({ opacity: 1 }, 500, 'linear')
+                    })
+                $('.content_cpanel2_' + old).animate({ opacity: 0 }, 500, 'linear',
+                    function () {
+                        $('.content_cpanel2_' + $(target).attr('id')).animate({opacity:1},500,'linear')
+                    })
+                $('.content_cpanel3_' + old).animate({ opacity: 0 }, 500, 'linear',
+                    function () {
+                        $('.content_cpanel3_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear')
+                    })
 
-                $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, speedBorder-1, 'linear',
+
+                $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').addClass($(target).attr('id') + 'Color')
+                var speedBorder = 1000
+                $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, speedBorder - 1, 'linear',
                     function () {
                         $('#content').removeClass();
                         $('#content').addClass($(target).attr('id') + 'Color');

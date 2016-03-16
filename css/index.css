@@ -11,21 +11,23 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 #Stage, #Stage div {
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
 }
+
 .bg-nonlayer {
     position: absolute;
     height: 135%;
     width: 100%;
     top: 0;
-    min-width: 0px;
+    min-width: 0;
     background-color: rgb(0, 92, 77);
     background-size: cover;
     background-image: url('../images/pokerthrowcards.jpg');
-    z-index:20;
+    z-index: 20;
 }
 
 /* Navigation */
@@ -94,7 +96,7 @@ nav svg {
     top: 0;
     overflow: hidden;
     cursor: default !important;
-    float:left;
+    float: left;
 }
 
 .nav_panel_border {
@@ -179,7 +181,7 @@ nav svg {
     position: relative;
     background-size: cover;
     background-image: url('../images/chipsiki/chips1copy2bot.jpg');
-    background-color:black;
+    background-color: black;
     height: 250%;
     overflow: hidden;
 }
@@ -203,49 +205,49 @@ nav svg {
     width: 887px;
     height: 441px;
     position: relative;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 .big_1 {
     background-image: url('../images/chipsiki/Big_1.png');
     width: 211px;
     height: 244px;
-    z-index:15
+    z-index: 15;
 }
 
 .big_2 {
     background-image: url('../images/chipsiki/Big_2.png');
     width: 253px;
     height: 303px;
-    z-index:14
+    z-index: 14;
 }
 
 .big_3 {
     background-image: url('../images/chipsiki/Big_3.png');
     width: 433px;
     height: 361px;
-    z-index:16
+    z-index: 16;
 }
 
 .big_4 {
     background-image: url('../images/chipsiki/Big_4.png');
     width: 265px;
     height: 254px;
-    z-index:13
+    z-index: 13;
 }
 
 .big_5 {
     background-image: url('../images/chipsiki/Big_5.png');
     width: 569px;
     height: 597px;
-    z-index:17
+    z-index: 17;
 }
 
 .big_6 {
     background-image: url('../images/chipsiki/Big_6.png');
     width: 378px;
     height: 369px;
-    z-index:15
+    z-index: 15;
 }
 
 
@@ -253,50 +255,50 @@ nav svg {
     background-image: url('../images/chipsiki/small_1.png');
     width: 978px;
     height: 400px;
-    z-index:5
+    z-index: 5;
 }
 
 .small_2 {
     background-image: url('../images/chipsiki/small_2.png');
     width: 1017px;
     height: 377px;
-    z-index:5
+    z-index: 5;
 }
 
 .small_3 {
     background-image: url('../images/chipsiki/small_3.png');
     width: 1322px;
     height: 537px;
-    z-index:5
+    z-index: 5;
 }
 
 .small_4 {
     background-image: url('../images/chipsiki/small_4.png');
     width: 1078px;
     height: 425px;
-    z-index:5
+    z-index: 5;
 }
 
 .small_5 {
     background-image: url('../images/chipsiki/small_5.png');
     width: 1012px;
     height: 425px;
-    z-index:3
+    z-index: 3;
 }
 
 .small_6 {
     background-image: url('../images/chipsiki/small_6.png');
     width: 1227px;
     height: 100%;
-    background-size:cover;
-    z-index:3
+    background-size: cover;
+    z-index: 3;
 }
 
 .small_7 {
     background-image: url('../images/chipsiki/Small_7.png');
     width: 554px;
     height: 319px;
-    z-index:3
+    z-index: 3;
 }
 
 
@@ -304,28 +306,28 @@ nav svg {
     background-image: url('../images/chipsiki/Layer 1.png');
     width: 554px;
     height: 361px;
-    z-index:2
+    z-index: 2;
 }
 
 .layer_2 {
     background-image: url('../images/chipsiki/Layer 2.png');
     width: 627px;
     height: 235px;
-    z-index:2
+    z-index: 2;
 }
 
 .layer_3 {
     background-image: url('../images/chipsiki/Layer 3.png');
     width: 231px;
     height: 216px;
-    z-index:2
+    z-index: 2;
 }
 
 .layer_4 {
     background-image: url('../images/chipsiki/Layer 4.png');
     width: 325px;
     height: 376px;
-    z-index:2
+    z-index: 2;
 }
 
 /*ChipsAnimation end*/
@@ -333,45 +335,52 @@ nav svg {
 #content {
     height: 100%;
     background-image: url('../images/chipsiki/chips1bot.png');
-    background-size:cover;
+    background-size: cover;
     position: absolute;
-    width:100%;
+    width: 100%;
     top: 250%;
     z-index: 20;
 }
+
 .content_wraper {
     width: calc(100% - 297px); /*необходимо что-бы граница блока совпала с рамкой меню на ноутбуках и десктопах*/
     height: 100%;
-    margin:0 auto;
-    border-color:inherit;
+    margin: 0 auto;
+    border-color: inherit;
 }
+
 .content_panel_wraper {
     width: 70%;
     height: 100%;
     float: right;
     position: relative;
-    padding:2% 0 2% 2%;
-    border-color:inherit;
+    padding: 2% 0 2% 2%;
+    border-color: inherit;
 }
-.content_panel_row{
+
+.content_panel_row {
     width: 100%;
     height: 51%;
     float: right;
-    border-color:inherit;
+    border-color: inherit;
 }
-.content_panel{background-color:rgba(23,26,29,.8)}
 
+.content_panel {
+    background-color: rgba(23,26,29,.8);
+}
 
+/*Border and content panel appear animation*/
 .content_border_holder {
     height: 100%;
     position: absolute;
-    left:-1px;
+    left: -1px;
 }
-.content_border{    
-    height:0;
+
+.content_border {
+    height: 0;
     border-left: 1px solid;
     position: absolute;
-    top:50%;
+    top: 50%;
 }
 
 .brservices {
@@ -382,10 +391,11 @@ nav svg {
     -webkit-transform: translateY(-65px);
     transform: translateY(-65px);
 }
-.brfunding{
-    border-color: #2cc98f;
 
+.brfunding {
+    border-color: #2cc98f;
 }
+
 .brinvesting {
     border-color: #fbba41;
     -moz-transform: translateY(65px);
@@ -395,67 +405,496 @@ nav svg {
     transform: translateY(65px);
 }
 
-.servicesColor{border-color: #f15f40!important;}
-.fundingColor{border-color: #2cc98f!important;}
-.investingColor{border-color: #fbba41!important;}
-.cpanel_sefborder_left{border-left: 1px solid;}
-.cpanel_sefborder_top{border-top: 1px solid;}
-.cpanel_sefborder_right{border-right: 1px solid;}
-.cpanel1{    
-    width: 0;/*30%*/
+.servicesColor {
+    border-color: #f15f40 !important;
+}
+
+.fundingColor {
+    border-color: #2cc98f !important;
+}
+
+.investingColor {
+    border-color: #fbba41 !important;
+}
+
+.cpanel_sefborder_left {
+    border-left: 1px solid;
+}
+
+.cpanel_sefborder_top {
+    border-top: 1px solid;
+}
+
+.cpanel_sefborder_right {
+    border-right: 1px solid;
+}
+
+.cpanel1 {
+    width: 0; /*30%*/
     height: 100%;
     float: left;
-    position:relative;
+    position: relative;
     border-color: inherit;
 }
 
-.cpanel2{
-    position:relative;
+.cpanel2 {
+    position: relative;
     width: 0;
     height: 45%;
     float: left;
     border-color: inherit;
-    margin-bottom:3.5%;
+    margin-bottom: 3.5%;
 }
-.content_cpanel2_border{
+
+.content_cpanel2_border {
     border-left: 1px solid;
-    border-color: inherit; 
+    border-color: inherit;
     height: 100%;
-    opacity:0;
+    opacity: 0;
     width: 1px;
     position: absolute;
 }
 
-.cpanel3{
+.cpanel3 {
     width: 0;
     height: 100%;
     float: left;
-    position:relative;
+    position: relative;
     border-color: inherit;
-    left:34%;
-
+    left: 34%;
 }
-.content_cpanel3_border{
+
+.content_cpanel3_border {
     border-right: 1px solid;
     border-color: inherit;
-    opacity:0;
+    opacity: 0;
     height: 100%;
     position: absolute;
     right: -1px;
 }
-.cpanel4{
+
+.cpanel4 {
     width: 62%;
     height: 0;
     float: right;
-    position:relative;
+    position: relative;
     border-color: inherit;
 }
-.content_cpanel4_border{
+
+.content_cpanel4_border {
     border-top: 1px solid;
-    border-color: inherit; 
+    border-color: inherit;
     width: 100%;
-    opacity:0;
-    top:-1px;
+    opacity: 0;
+    top: -1px;
     position: absolute;
 }
+/*Border and content panel appear animation end*/
+.content_cpanel1 {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+    .content_cpanel1 div {
+        vertical-align: middle;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        color: #ecf0f1;
+        position: absolute;
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        top: 50%;
+    }
+
+    .content_cpanel1 h2 {
+        font-weight: 700;
+        font-size: 2.571em;
+        opacity: 0;
+    }
+
+    .content_cpanel1 p {
+        font-weight: 300;
+        font-size: 1.143em;
+        width: 75%;
+        margin: 0 auto;
+        opacity: 0;
+    }
+/*Cpanel2 classes*/
+.content_cpanel2 {
+    width: 100%;
+    height: 100%;
+}
+
+    .content_cpanel2 > div {
+        width: 100%;
+        height: 90%;
+        position: absolute;
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        top: 50%;
+        opacity: 0;
+    }
+
+.cpanel2_services_counter, .cpanel2_funding_counter, .cpanel2_investing_counter {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #ecf0f1;
+    font-size: 1.5em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    line-height: 44px;
+    vertical-align: middle;
+}
+
+.cpanel2_services_numeric {
+    font-family: 'Open Sans', sans-serif;
+    color: #f15f40;
+    font-size: 1.5em;
+    line-height: 57px;
+    font-weight: 600;
+}
+
+.cpanel2_funding_numeric {
+    font-family: 'Open Sans', sans-serif;
+    color: #2cc98f;
+    font-size: 1.5em;
+    line-height: 57px;
+    font-weight: 600;
+}
+
+.cpanel2_investing_numeric {
+    font-family: 'Open Sans', sans-serif;
+    color: #fbba41;
+    font-size: 1.5em;
+    line-height: 57px;
+    font-weight: 600;
+}
+
+.cpanel2_services_speedometers, .cpanel2_funding_money {
+    width: 100%;
+    height: 75%;
+}
+
+.cpanel2_services_speedometer_winers {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.cpanel2_services_speedometer_losers {
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.speedometers_losers, .speedometers_winers {
+    width: 100%;
+    height: 80%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 0;
+    position: relative;
+}
+
+.speedometers_losers {
+    background-image: url('../images/dev_ass/Gauges/gauge_red.png');
+}
+
+.speedometers_winers {
+    background-image: url('../images/dev_ass/Gauges/gauge_blue.png');
+}
+
+.speedometers_text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    letter-spacing: 1.58px;
+    color: #ECF0F1;
+    text-align: center;
+    height: 20%;
+    margin: 0;
+    padding: 3% 0;
+}
+
+.speedArrow {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 20%;
+    height: 2%;
+    background-color: white;
+    border-radius: 7%;
+    -moz-transform: rotateZ(-180deg);
+    -ms-transform: rotateZ(-180deg);
+    -o-transform: rotateZ(-180deg);
+    -webkit-transform: rotateZ(-180deg);
+    transform: rotateZ(-180deg);
+    -moz-transform-origin: left;
+    -ms-transform-origin: left;
+    -o-transform-origin: left;
+    -webkit-transform-origin: left;
+    transform-origin: left;
+}
+
+.speedDot {
+    position: absolute;
+    width: 4%;
+    left: 48%;
+    bottom: -4%;
+    height: 10%;
+    border-radius: 100%;
+    clip: rect(0px,15px,9px,0px);
+}
+
+.speedometers_winers .speedDot, .speedometers_winers .speedText {
+    background-color: #0692ca;
+    color: #0692ca;
+}
+
+.speedometers_losers .speedDot, .speedometers_losers .speedText {
+    background-color: #fc6042;
+    color: #fc6042;
+}
+
+.speedText {
+    display: block;
+    position: absolute;
+    left: 50%;
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 16%;
+    background-color: transparent !important;
+    font-family: Open Sans;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 21px;
+    letter-spacing: -0.52px;
+}
+
+.money_bank {
+    background-image: url('../images/dev_ass/Funding/money_machine.png');
+    background-position: 100% 0;
+}
+
+.money_trader {
+    background-image: url('../images/dev_ass/Funding/money_stack_before.png');
+    background-position: 0 0;
+}
+
+.banknotes {
+    background-image: url('../images/dev_ass/Funding/bill.png');
+    width: 47px;
+    height: 46px;
+    position: absolute;
+}
+
+.cpanel2_funding_money_bank {
+    height: 100%;
+    width: 36%;
+    display: inline-block;
+}
+
+.cpanel2_funding_money_flying {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 22%;
+    display: inline-block;
+}
+
+.cpanel2_funding_money_trader {
+    height: 100%;
+    width: 39%;
+    display: inline-block;
+}
+
+.money_bank, .money_trader {
+    width: 100%;
+    height: 80%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.moneyText {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    letter-spacing: 1.58px;
+    color: #ECF0F1;
+    height: 20%;
+    margin: 0;
+    padding: 3% 0;
+}
+
+.money_bank + .moneyText {
+    text-align: right;
+    padding-right: 16%;
+}
+
+.money_trader + .moneyText {
+    text-align: left;
+    padding-left: 16%;
+}
+
+
+.cpanel2_investing_graphics {
+    width: 100%;
+    height: 75%;
+}
+
+.cpanel2_investing_graphics_moneybox {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.cpanel2_investing_graphics_grafick {
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.graphics_grafick {
+    background-image: url('../images/dev_ass/Investing/axis.png');
+}
+
+.graphics_moneybox, .graphics_grafick {
+    width: 100%;
+    height: 80%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 0;
+    position: relative;
+}
+
+    .graphics_moneybox img {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .graphics_grafick svg {
+        position: absolute;
+        width: 60%;
+        top: 10%;
+        left: 17%;
+    }
+
+.graphics_text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    letter-spacing: 1.58px;
+    color: #ECF0F1;
+    text-align: center;
+    height: 20%;
+    margin: 0;
+    padding: 3% 0;
+}
+
+/*Cpanel3 classes*/
+.content_cpanel3_services, .content_cpanel3_funding, .content_cpanel3_investing {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+.cpanel3_any_wraper {
+    width: 100%;
+    height: 100%;
+}
+
+.cpanel3_any_text {
+    height: 15%;
+    padding: 7% 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    letter-spacing: 1.58px;
+    color: #ECF0F1;
+}
+
+    .cpanel3_any_text span {
+        font-family: Open Sans;
+        font-size: 21px;
+        letter-spacing: -0.52px;
+        color: #0692ca;
+    }
+
+
+
+
+/*TEMP CLASSES!*/
+.cpanel3_any_spiner {
+    width: 100%;
+    height: 85%;
+    position: relative;
+}
+
+    .cpanel3_any_spiner img {
+        margin: 0 auto;
+        position: relative;
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        top: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+
+/*Cpanel4*/
+
+
+
+/*  font-size: 16px;
+  font-family: "Open Sans";
+  color: rgb(236, 240, 241);
+  line-height: 2.25;
+  text-align: center;
+  position: absolute;
+  left: 831.534px;
+    letter-spacing :0.1em;
+
+  top: 579.289px;
+  width: 259px;
+  height: 17px;
+  z-index: 39;*/
+
+
+
+/*.RotateAnim{animation:spin 1s linear forwards;} animation for arrow spin
+@keyframes spin{
+    0%{transform:rotateZ(-145deg)}
+    30%{transform:rotateZ(-165deg)}
+    50%{transform:rotateZ(-135deg)}
+    60%{transform:rotateZ(-130deg)}
+    70%{transform:rotateZ(-135deg)}
+    80%{transform:rotateZ(-100deg)}
+    85%{transform:rotateZ(-110deg)}
+    90%{transform:rotateZ(-115deg)}
+    100%{transform:rotateZ(-95deg)}
+}*/
 /*content end*/

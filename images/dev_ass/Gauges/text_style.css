@@ -1,0 +1,38 @@
+.percentage
+{
+  font-family : Open Sans;
+  font-weight : bold;
+  font-size : 36px;
+  letter-spacing : 2.7px;
+  text-transform : uppercase;
+  color : #FC6042;
+  color : rgb(252, 96, 66);
+}
+.profitable
+{
+  font-family : Open Sans;
+  font-weight: 300;
+  font-size : 36px;
+  letter-spacing : 2.7px;
+  color : #ECF0F1;
+  color : rgb(236, 240, 241);
+}
+.win_lose
+{
+  font-family : Open Sans;
+  font-weight: 300;
+  font-size : 21px;
+  letter-spacing : 1.58px;
+  color : #ECF0F1;
+  color : rgb(236, 240, 241);
+}
+.NormalCharacterStyle
+{
+  font-family : Open Sans;
+  font-weight : bold;
+  font-style : italic;
+  font-size : 21px;
+  letter-spacing : -0.52px;
+  color : #FC6042;
+  color : rgb(252, 96, 66);
+}
