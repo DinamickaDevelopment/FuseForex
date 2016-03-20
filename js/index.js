@@ -4,7 +4,7 @@
 
 
 $(window).ready(function () {
-    var firstanim = true, inProgress = false,oldBlock;
+    var firstanim = true, inProgress = false, oldBlock,currentBlock;
     //Browser check
     function cBrowser() {
         var ua = navigator.userAgent;
@@ -115,7 +115,9 @@ $(window).ready(function () {
     }
 
     function menuMouseClick() {//make another orientation for active change
-        if (!$(this).hasClass('menu_active')) {
+        if (!$(this).hasClass('menu_active') && $(this).attr('id') !== currentBlock && !inProgress) {
+            inProgress = true;
+            currentBlock = ($(this).attr('id') == 'home') ? currentBlock : $(this).attr('id');
             oldBlock = ($('.menu_active').attr('id') == 'home') ? oldBlock : $('.menu_active').attr('id');
             if ($('.menu_item').index($(this)) > $('.menu_item').index($('.menu_active'))) {//check up or down anumation
                 $('.menu_active').find('.nav_overlay_border').animate({
@@ -139,19 +141,20 @@ $(window).ready(function () {
                 })
                 $(this).addClass('menu_active');
             }
-        }
-        if ($(this).attr('id') == 'home') {//if pressed HOME we scroll to top of page
-            $('body,html').animate({ scrollTop: 0 }, 1500, 'linear');
-        } else {//in other case we check viewport positiin
-            if (window.pageYOffset !== Math.round($('#content').offset().top)) {//if viewport not in content section then scroll to section
-                var ContentTop = Math.round($('#content').offset().top), actor = this;
-                $('body,html').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
-                    contentAnimation(actor, oldBlock);
-                });
-            } else {//in other case start content animation
-                contentAnimation(this, oldBlock);
+            if ($(this).attr('id') == 'home') {//if pressed HOME we scroll to top of page
+                $('body,html').animate({ scrollTop: 0 }, 1500, 'linear');
+            } else {//in other case we check viewport positiin
+                if (window.pageYOffset !== Math.round($('#content').offset().top)) {//if viewport not in content section then scroll to section
+                    var ContentTop = Math.round($('#content').offset().top), actor = this;
+                    $('body,html').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
+                        contentAnimation(actor, oldBlock);
+                    });
+                } else {//in other case start content animation
+                    contentAnimation(this, oldBlock);
+                }
             }
         }
+
     }
 
     //entry menu animation
@@ -193,247 +196,244 @@ $(window).ready(function () {
 
     //Content Animation
     function contentAnimation(target, old) {
-        if (!inProgress) {
-            inProgress = true;
-            if (firstanim) {
-                $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, 1000, 'linear',
-                    function () {
-                        $('#content').removeClass();
-                        $('#content').addClass($(target).attr('id') + 'Color');
-                        $('.cpanel1').addClass('cpanel_sefborder_left');
-                        $(this).css({ 'top': '50%', 'height': '0' })
-                        $('.cpanel1').animate({ width: '30%' }, 1000, 'linear',
-                            function () {
-                                $('.content_cpanel1_' + $(target).attr('id') + ' h2').animate({ opacity: 1 }, 500, 'linear',//Content itself
-                                    function () {
-                                        $('.content_cpanel1_' + $(target).attr('id') + ' p').animate({ opacity: 1 }, 500, 'linear')
-                                    });
-                                $('.content_cpanel2_border').css({ 'left': '-' + $('.content_panel_wraper').css('padding-left'), 'opacity': '1' })
-                                $('.content_cpanel2_border').animate({ left: '-1px' }, 600, 'linear',
-                                    function () {
-                                        $(this).css({ 'height': '0' });
-                                        $('.cpanel2').addClass('cpanel_sefborder_left');
-                                        $('.cpanel2').animate({ width: '100%' }, 1000, 'linear',
-                                            function () {
-                                                $('.content_cpanel2_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear',//Content itself
-                                                    function () {
-                                                        switch ($(target).attr('id')) {
-                                                            case 'services':
-                                                                $('#cpanel2_services_numeric_coun').countTo({ from: 0, to: 45, speed: 5000 });
-                                                                $('#winners_coun').countTo({ from: 0, to: 110, speed: 5000 });
-                                                                $('#losers_coun').countTo({ from: 0, to: 220, speed: 5000 });
-                                                                $('#losers_coun+.speedArrow').addClass('rotateLos');
-                                                                $('#winners_coun+.speedArrow').addClass('rotateWin');
-                                                                break;
-                                                            case 'funding':
-                                                                $('#cpanel2_funding_numeric_coun').countTo({ from: 0, to: 80, speed: 5000 });
-                                                                $('.banknotes').addClass('banknotesMove');
-                                                                $('.money_trader_full').addClass('animationMoney');
-                                                                break;
-                                                            case 'investing':
-                                                                $('#cpanel2_investing_numeric_coun').countTo({ from: 0, to: 100, speed: 5000 })
-                                                                $('.graphics_moneybox').addClass('coinFals');
-                                                                $('#line').addClass('drawLine');
-                                                                break;
-                                                            default:
-                                                                alert('Unexpected error');
-
-                                                        }
-                                                        //https://github.com/mhuggins/jquery-countTo - documentation for countTo.js
-                                                    })
-                                                $('.content_cpanel4_border').css({ 'top': '-' + $('.cpanel2').css('margin-bottom'), 'opacity': '1' })
-                                                $('.content_cpanel4_border').animate({ top: '-1px' }, 600, 'linear',
-                                                    function () {
-                                                        $(this).css({ 'width': '0' });
-                                                        $('.cpanel4').addClass('cpanel_sefborder_top');
-                                                        $('.cpanel4').animate({ height: '100%' }, 1000, 'linear',
-                                                            function () {
-                                                                $('.content_cpanel4_' + $(target).attr('id') + ',.cpanel4_hiddenPanel_findOut').animate({ opacity: 1 }, 500, 'linear')
-                                                                $('.content_cpanel3_border').css({ 'right': -Math.round($('.content_panel_wraper').width() * 0.04), 'opacity': '1' })
-                                                                $('.content_cpanel3_border').animate({ right: '-1px' }, 600, 'linear',
-                                                                    function () {
-                                                                        $(this).css({ 'height': '0' });
-                                                                        $('.cpanel3').addClass('cpanel_sefborder_right');
-                                                                        $('.cpanel3').animate({ width: '34%', left: '0' }, 1000, 'linear',
-                                                                            function () {
-                                                                                $('.content_cpanel3_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear',
-                                                                                    function () {
-                                                                                        switch ($(target).attr('id')) {//start animation on apear 4th block
-                                                                                            case 'services':
-                                                                                                $('#services_text_number').countTo({ from: 0, to: 90, speed: 5000 })
-                                                                                                $('.cpanel3_services_spiner').circleProgress({
-                                                                                                    startAngle: -Math.PI / 2,
-                                                                                                    value: 1,
-                                                                                                    thickness: 101,
-                                                                                                    emptyFill: 'rgba(0,0,0,0)',
-                                                                                                    size: 202,
-                                                                                                    animation: { duration: 5000, easing: "linear" },
-                                                                                                    fill: { image: "../images/dev_ass/Gauges/ticker_orange.png" }
-                                                                                                });
-                                                                                                 break;
-                                                                                            case 'funding':
-                                                                                                $('#funding_text_number').countTo({ from: 0, to: 18, speed: 5000 });
-                                                                                                $('.cpanel3_funding_spiner').circleProgress({
-                                                                                                    startAngle: -Math.PI / 2,
-                                                                                                    value: 1,
-                                                                                                    thickness: 101,
-                                                                                                    emptyFill: 'rgba(0,0,0,0)',
-                                                                                                    size: 202,
-                                                                                                    animation: { duration: 5000, easing: "linear" },
-                                                                                                    fill: { image: "../images/dev_ass/Gauges/ticker_green.png" }
-                                                                                                });
-                                                                                                break;
-                                                                                            case 'investing':
-                                                                                                $('#investing_text_number').countTo({ from: 0, to: 20, speed: 5000 });
-                                                                                                $('.cpanel3_investing_spiner').circleProgress({
-                                                                                                    startAngle: -Math.PI / 2,
-                                                                                                    value: 1,
-                                                                                                    thickness: 101,
-                                                                                                    emptyFill: 'rgba(0,0,0,0)',
-                                                                                                    size: 202,
-                                                                                                    animation: { duration: 5000, easing: "linear" },
-                                                                                                    fill: { image: "../images/dev_ass/Gauges/ticker_yellow.png" }
-                                                                                                });
-                                                                                                break;
-                                                                                            default:
-                                                                                                alert('Unexpected error');
-                                                                                        }
-                                                                                    })
-                                                                                inProgress = false; firstanim = false;
-                                                                            })
-
-                                                                    })
-                                                            })
-                                                    })
-
-                                            })
-                                    })
-                            })
-                    })
-            } else {//old = services,funding,investing
-                $('.content_cpanel1_' + old + ' h2, .content_cpanel1_' + old + ' p').animate({ opacity: 0 }, 500, 'linear',
-                    function () {
-                        switch (old) {//remove old content animation
-                            case 'services':
-                                $('#services_text_number').countTo('stop')
-                                $('#cpanel2_services_numeric_coun').countTo('stop');
-                                $('#winners_coun').countTo('stop');
-                                $('#losers_coun').countTo('stop');
-                                $('#winners_coun').html('0');
-                                $('#losers_coun').html('0');
-                                $('#losers_coun+.speedArrow').removeClass('rotateLos');
-                                $('#winners_coun+.speedArrow').removeClass('rotateWin');
-                                break;
-                            case 'funding':
-                                $('#cpanel2_funding_numeric_coun').countTo('stop');
-                                $('#funding_text_number').countTo('stop');
-                                $('.banknotes').removeClass('banknotesMove');
-                                $('.money_trader_full').removeClass('animationMoney');
-                                break;
-                            case 'investing':
-                                $('#cpanel2_investing_numeric_coun').countTo('stop')
-                                $('.graphics_moneybox').removeClass('coinFals');
-                                $('#line').removeClass('drawLine');
-                                $('#investing_text_number').countTo('stop')
-                                break;
-                            default:
-                                alert('Unexpected error');
-                        }
-                        switch ($(target).attr('id')) {//Turn on active animation
-                            case 'services':
-                                $('.cpanel3_services_spiner').circleProgress({
-                                    startAngle: -Math.PI / 2,
-                                    value: 1,
-                                    thickness: 101,
-                                    emptyFill: 'rgba(0,0,0,0)',
-                                    size: 202,
-                                    animation: { duration: 5000, easing: "linear" },
-                                    fill: { image: "../images/dev_ass/Gauges/ticker_orange.png" }
+        if (firstanim) {
+            $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, 1000, 'linear',
+                function () {
+                    $('#content').removeClass();
+                    $('#content').addClass($(target).attr('id') + 'Color');
+                    $('.cpanel1').addClass('cpanel_sefborder_left');
+                    $(this).css({ 'top': '50%', 'height': '0' })
+                    $('.cpanel1').animate({ width: '30%' }, 1000, 'linear',
+                        function () {
+                            $('.content_cpanel1_' + $(target).attr('id') + ' h2').animate({ opacity: 1 }, 500, 'linear',//Content itself
+                                function () {
+                                    $('.content_cpanel1_' + $(target).attr('id') + ' p').animate({ opacity: 1 }, 500, 'linear')
                                 });
-                                $('#services_text_number').countTo({ from: 0, to: 90, speed: 5000 })
-                                $('#cpanel2_services_numeric_coun').countTo({ from: 0, to: 45, speed: 5000 });
-                                $('#winners_coun').countTo({ from: 0, to: 110, speed: 5000 });
-                                $('#losers_coun').countTo({ from: 0, to: 220, speed: 5000 });
-                                $('#losers_coun+.speedArrow').addClass('rotateLos');
-                                $('#winners_coun+.speedArrow').addClass('rotateWin');
-                                break;
-                            case 'funding':
-                                $('.cpanel3_funding_spiner').circleProgress({
-                                    startAngle: -Math.PI / 2,
-                                    value: 1,
-                                    thickness: 101,
-                                    emptyFill: 'rgba(0,0,0,0)',
-                                    size: 202,
-                                    animation: { duration: 5000, easing: "linear" },
-                                    fill: { image: "../images/dev_ass/Gauges/ticker_green.png" }
-                                });
+                            $('.content_cpanel2_border').css({ 'left': '-' + $('.content_panel_wraper').css('padding-left'), 'opacity': '1' })
+                            $('.content_cpanel2_border').animate({ left: '-1px' }, 600, 'linear',
+                                function () {
+                                    $(this).css({ 'height': '0' });
+                                    $('.cpanel2').addClass('cpanel_sefborder_left');
+                                    $('.cpanel2').animate({ width: '100%' }, 1000, 'linear',
+                                        function () {
+                                            $('.content_cpanel2_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear',//Content itself
+                                                function () {
+                                                    switch ($(target).attr('id')) {
+                                                        case 'services':
+                                                            $('#cpanel2_services_numeric_coun').countTo({ from: 0, to: 45, speed: 5000 });
+                                                            $('#winners_coun').countTo({ from: 0, to: 110, speed: 5000 });
+                                                            $('#losers_coun').countTo({ from: 0, to: 220, speed: 5000 });
+                                                            $('#losers_coun+.speedArrow').addClass('rotateLos');
+                                                            $('#winners_coun+.speedArrow').addClass('rotateWin');
+                                                            break;
+                                                        case 'funding':
+                                                            $('#cpanel2_funding_numeric_coun').countTo({ from: 0, to: 80, speed: 5000 });
+                                                            $('.banknotes').addClass('banknotesMove');
+                                                            $('.money_trader_full').addClass('animationMoney');
+                                                            break;
+                                                        case 'investing':
+                                                            $('#cpanel2_investing_numeric_coun').countTo({ from: 0, to: 100, speed: 5000 })
+                                                            $('.graphics_moneybox').addClass('coinFals');
+                                                            $('#line').addClass('drawLine');
+                                                            break;
+                                                        default:
+                                                            alert('Unexpected error');
 
-                                $('#cpanel2_funding_numeric_coun').countTo({ from: 0, to: 80, speed: 5000 });
-                                $('.banknotes').addClass('banknotesMove');
-                                $('.money_trader_full').addClass('animationMoney');
-                                $('#funding_text_number').countTo({ from: 0, to: 18, speed: 5000 })
-                                break;
-                            case 'investing':
-                                $('.cpanel3_investing_spiner').circleProgress({
-                                    startAngle: -Math.PI / 2,
-                                    value: 1,
-                                    thickness: 101,
-                                    emptyFill: 'rgba(0,0,0,0)',
-                                    size: 202,
-                                    animation: { duration: 5000, easing: "linear" },
-                                    fill: { image: "../images/dev_ass/Gauges/ticker_yellow.png" }
-                                });
-                                $('#cpanel2_investing_numeric_coun').countTo({ from: 0, to: 100, speed: 5000 })
-                                $('.graphics_moneybox').addClass('coinFals');
-                                $('#line').addClass('drawLine');
-                                $('#investing_text_number').countTo({ from: 0, to: 20, speed: 5000 });
-                                break;
-                            default:
-                                alert('Unexpected error');
-                        }
-                        $('.content_cpanel1_' + $(target).attr('id') + ' h2,.content_cpanel1_' + $(target).attr('id') + ' p').animate({ opacity: 1 }, 500, 'linear')
-                    })
-                $('.content_cpanel2_' + old).animate({ opacity: 0 }, 500, 'linear',
-                    function () {
-                        $('.content_cpanel2_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear')
-                    })
-                $('.content_cpanel3_' + old).animate({ opacity: 0 }, 500, 'linear',
-                    function () {
-                        $('.content_cpanel3_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear')
-                    })
+                                                    }
+                                                    //https://github.com/mhuggins/jquery-countTo - documentation for countTo.js
+                                                })
+                                            $('.content_cpanel4_border').css({ 'top': '-' + $('.cpanel2').css('margin-bottom'), 'opacity': '1' })
+                                            $('.content_cpanel4_border').animate({ top: '-1px' }, 600, 'linear',
+                                                function () {
+                                                    $(this).css({ 'width': '0' });
+                                                    $('.cpanel4').addClass('cpanel_sefborder_top');
+                                                    $('.cpanel4').animate({ height: '100%' }, 1000, 'linear',
+                                                        function () {
+                                                            $('.content_cpanel4_' + $(target).attr('id') + ',.cpanel4_hiddenPanel_findOut').animate({ opacity: 1 }, 500, 'linear')
+                                                            $('.content_cpanel3_border').css({ 'right': -Math.round($('.content_panel_wraper').width() * 0.04), 'opacity': '1' })
+                                                            $('.content_cpanel3_border').animate({ right: '-1px' }, 600, 'linear',
+                                                                function () {
+                                                                    $(this).css({ 'height': '0' });
+                                                                    $('.cpanel3').addClass('cpanel_sefborder_right');
+                                                                    $('.cpanel3').animate({ width: '34%', left: '0' }, 1000, 'linear',
+                                                                        function () {
+                                                                            $('.content_cpanel3_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear',
+                                                                                function () {
+                                                                                    switch ($(target).attr('id')) {//start animation on apear 4th block
+                                                                                        case 'services':
+                                                                                            $('#services_text_number').countTo({ from: 0, to: 90, speed: 5000 })
+                                                                                            $('.cpanel3_services_spiner').circleProgress({
+                                                                                                startAngle: -Math.PI / 2,
+                                                                                                value: 1,
+                                                                                                thickness: 101,
+                                                                                                emptyFill: 'rgba(0,0,0,0)',
+                                                                                                size: 202,
+                                                                                                animation: { duration: 5000, easing: "linear" },
+                                                                                                fill: { image: "images/dev_ass/Gauges/ticker_orange.png" }
+                                                                                            });
+                                                                                            break;
+                                                                                        case 'funding':
+                                                                                            $('#funding_text_number').countTo({ from: 0, to: 18, speed: 5000 });
+                                                                                            $('.cpanel3_funding_spiner').circleProgress({
+                                                                                                startAngle: -Math.PI / 2,
+                                                                                                value: 1,
+                                                                                                thickness: 101,
+                                                                                                emptyFill: 'rgba(0,0,0,0)',
+                                                                                                size: 202,
+                                                                                                animation: { duration: 5000, easing: "linear" },
+                                                                                                fill: { image: "images/dev_ass/Gauges/ticker_green.png" }
+                                                                                            });
+                                                                                            break;
+                                                                                        case 'investing':
+                                                                                            $('#investing_text_number').countTo({ from: 0, to: 20, speed: 5000 });
+                                                                                            $('.cpanel3_investing_spiner').circleProgress({
+                                                                                                startAngle: -Math.PI / 2,
+                                                                                                value: 1,
+                                                                                                thickness: 101,
+                                                                                                emptyFill: 'rgba(0,0,0,0)',
+                                                                                                size: 202,
+                                                                                                animation: { duration: 5000, easing: "linear" },
+                                                                                                fill: { image: "images/dev_ass/Gauges/ticker_yellow.png" }
+                                                                                            });
+                                                                                            break;
+                                                                                        default:
+                                                                                            alert('Unexpected error');
+                                                                                    }
+                                                                                })
+                                                                            inProgress = false; firstanim = false;
+                                                                        })
 
-                //need logick for open findout
-                $('.content_cpanel4_' + old + ',.cpanel4_hiddenPanel_findOut').animate({ opacity: 0 }, 500, 'linear',
-                    function () {
-                        $('.content_cpanel4_' + $(target).attr('id') + ',.cpanel4_hiddenPanel_findOut').animate({ opacity: 1 }, 500, 'linear')
-                    })
+                                                                })
+                                                        })
+                                                })
 
-                $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').addClass($(target).attr('id') + 'Color')
-                var speedBorder = 1000
-                $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, speedBorder - 1, 'linear',
-                    function () {
-                        $('#content').removeClass();
-                        $('#content').addClass($(target).attr('id') + 'Color');
-                        $(this).css({ 'top': '50%', 'height': '0' });
-                        $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').removeClass($(target).attr('id') + 'Color')
-                        inProgress = false;
-                    })
+                                        })
+                                })
+                        })
+                })
+        } else {//old = services,funding,investing
+            $('.content_cpanel1_' + old + ' h2, .content_cpanel1_' + old + ' p').animate({ opacity: 0 }, 500, 'linear',
+                function () {
+                    switch (old) {//remove old content animation
+                        case 'services':
+                            $('#services_text_number').countTo('stop')
+                            $('#cpanel2_services_numeric_coun').countTo('stop');
+                            $('#winners_coun').countTo('stop');
+                            $('#losers_coun').countTo('stop');
+                            $('#winners_coun').html('0');
+                            $('#losers_coun').html('0');
+                            $('#losers_coun+.speedArrow').removeClass('rotateLos');
+                            $('#winners_coun+.speedArrow').removeClass('rotateWin');
+                            break;
+                        case 'funding':
+                            $('#cpanel2_funding_numeric_coun').countTo('stop');
+                            $('#funding_text_number').countTo('stop');
+                            $('.banknotes').removeClass('banknotesMove');
+                            $('.money_trader_full').removeClass('animationMoney');
+                            break;
+                        case 'investing':
+                            $('#cpanel2_investing_numeric_coun').countTo('stop')
+                            $('.graphics_moneybox').removeClass('coinFals');
+                            $('#line').removeClass('drawLine');
+                            $('#investing_text_number').countTo('stop')
+                            break;
+                        default:
+                            alert('Unexpected error');
+                    }
+                    switch ($(target).attr('id')) {//Turn on active animation
+                        case 'services':
+                            $('.cpanel3_services_spiner').circleProgress({
+                                startAngle: -Math.PI / 2,
+                                value: 1,
+                                thickness: 101,
+                                emptyFill: 'rgba(0,0,0,0)',
+                                size: 202,
+                                animation: { duration: 5000, easing: "linear" },
+                                fill: { image: "../images/dev_ass/Gauges/ticker_orange.png" }
+                            });
+                            $('#services_text_number').countTo({ from: 0, to: 90, speed: 5000 })
+                            $('#cpanel2_services_numeric_coun').countTo({ from: 0, to: 45, speed: 5000 });
+                            $('#winners_coun').countTo({ from: 0, to: 110, speed: 5000 });
+                            $('#losers_coun').countTo({ from: 0, to: 220, speed: 5000 });
+                            $('#losers_coun+.speedArrow').addClass('rotateLos');
+                            $('#winners_coun+.speedArrow').addClass('rotateWin');
+                            break;
+                        case 'funding':
+                            $('.cpanel3_funding_spiner').circleProgress({
+                                startAngle: -Math.PI / 2,
+                                value: 1,
+                                thickness: 101,
+                                emptyFill: 'rgba(0,0,0,0)',
+                                size: 202,
+                                animation: { duration: 5000, easing: "linear" },
+                                fill: { image: "../images/dev_ass/Gauges/ticker_green.png" }
+                            });
 
-                $('.content_cpanel2_border').animate({ height: '100%' }, speedBorder, 'linear',
-                    function () {
-                        $(this).css({ 'height': '0' });
-                    })
+                            $('#cpanel2_funding_numeric_coun').countTo({ from: 0, to: 80, speed: 5000 });
+                            $('.banknotes').addClass('banknotesMove');
+                            $('.money_trader_full').addClass('animationMoney');
+                            $('#funding_text_number').countTo({ from: 0, to: 18, speed: 5000 })
+                            break;
+                        case 'investing':
+                            $('.cpanel3_investing_spiner').circleProgress({
+                                startAngle: -Math.PI / 2,
+                                value: 1,
+                                thickness: 101,
+                                emptyFill: 'rgba(0,0,0,0)',
+                                size: 202,
+                                animation: { duration: 5000, easing: "linear" },
+                                fill: { image: "../images/dev_ass/Gauges/ticker_yellow.png" }
+                            });
+                            $('#cpanel2_investing_numeric_coun').countTo({ from: 0, to: 100, speed: 5000 })
+                            $('.graphics_moneybox').addClass('coinFals');
+                            $('#line').addClass('drawLine');
+                            $('#investing_text_number').countTo({ from: 0, to: 20, speed: 5000 });
+                            break;
+                        default:
+                            alert('Unexpected error');
+                    }
+                    $('.content_cpanel1_' + $(target).attr('id') + ' h2,.content_cpanel1_' + $(target).attr('id') + ' p').animate({ opacity: 1 }, 500, 'linear')
+                })
+            $('.content_cpanel2_' + old).animate({ opacity: 0 }, 500, 'linear',
+                function () {
+                    $('.content_cpanel2_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear')
+                })
+            $('.content_cpanel3_' + old).animate({ opacity: 0 }, 500, 'linear',
+                function () {
+                    $('.content_cpanel3_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear')
+                })
 
-                $('.content_cpanel4_border').animate({ width: '100%' }, speedBorder, 'linear',
-                    function () {
-                        $(this).css({ 'width': '0' });
-                    })
+            //need logick for open findout
+            $('.content_cpanel4_' + old + ',.cpanel4_hiddenPanel_findOut').animate({ opacity: 0 }, 500, 'linear',
+                function () {
+                    $('.content_cpanel4_' + $(target).attr('id') + ',.cpanel4_hiddenPanel_findOut').animate({ opacity: 1 }, 500, 'linear')
+                })
 
-                $('.content_cpanel3_border').animate({ height: '100%' }, speedBorder, 'linear',
-                    function () {
-                        $(this).css({ 'height': '0' });
-                    })
-            }
+            $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').addClass($(target).attr('id') + 'Color')
+            var speedBorder = 1000
+            $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, speedBorder - 1, 'linear',
+                function () {
+                    $('#content').removeClass();
+                    $('#content').addClass($(target).attr('id') + 'Color');
+                    $(this).css({ 'top': '50%', 'height': '0' });
+                    $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').removeClass($(target).attr('id') + 'Color')
+                    inProgress = false;
+                })
+
+            $('.content_cpanel2_border').animate({ height: '100%' }, speedBorder, 'linear',
+                function () {
+                    $(this).css({ 'height': '0' });
+                })
+
+            $('.content_cpanel4_border').animate({ width: '100%' }, speedBorder, 'linear',
+                function () {
+                    $(this).css({ 'width': '0' });
+                })
+
+            $('.content_cpanel3_border').animate({ height: '100%' }, speedBorder, 'linear',
+                function () {
+                    $(this).css({ 'height': '0' });
+                })
         }
 
     }
