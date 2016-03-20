@@ -489,7 +489,21 @@ nav svg {
     top: -1px;
     position: absolute;
 }
-/*Border and content panel appear animation end*/
+.cpanel5 {
+    float: right;
+    width: 62%;
+    height: 0;/*43%*/
+    overflow: hidden;
+}
+.content_cpanel5_border {
+    border-top: 1px solid;
+    border-color: inherit;
+    width: 100%;
+    opacity: 0;
+    top: -1px;
+    position: absolute;
+}
+    /*Border and content panel appear animation end*/
 .content_cpanel1 {
     width: 100%;
     height: 100%;
@@ -541,6 +555,7 @@ nav svg {
         transform: translateY(-50%);
         top: 50%;
         opacity: 0;
+        overflow: hidden;
     }
 
 .cpanel2_services_counter, .cpanel2_funding_counter, .cpanel2_investing_counter {
@@ -692,11 +707,61 @@ nav svg {
     background-position: 0 0;
 }
 
+.money_trader_full {
+    width: 58%;
+    height: 99%;
+    position: relative;
+    overflow: hidden;
+    top: 100%;
+    /*background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../images/dev_ass/Funding/money_stack_after.png');
+    background-position: 0px 0px;*/
+}
+
+    .money_trader_full img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: -100%;
+    }
+
+.animationMoney {
+    animation: test1 5s linear forwards;
+}
+
+@keyframes test1 {
+    from {
+        top: 100%;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+.money_trader_full.animationMoney img {
+    animation: test2 5s linear forwards;
+}
+
+@keyframes test2 {
+    from {
+        top: -100%;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
 .banknotes {
     background-image: url('../images/dev_ass/Funding/bill.png');
     width: 47px;
     height: 46px;
     position: absolute;
+    top: 40%;
+    left: -30%;
 }
 
 .cpanel2_funding_money_bank {
@@ -790,12 +855,63 @@ nav svg {
         transform: translateY(-50%);
     }
 
-    .graphics_grafick svg {
-        position: absolute;
-        width: 60%;
-        top: 10%;
-        left: 17%;
+    .graphics_moneybox.coinFals .coin1 {
+        animation: coin1fall 2.5s linear forwards;
+        animation-iteration-count: 2;
     }
+
+    .graphics_moneybox.coinFals .coin2 {
+        animation: coin2fall 2.5s linear forwards;
+        animation-iteration-count: 2;
+    }
+
+@keyframes coin1fall {
+    from {
+        top: -88%;
+    }
+
+    to {
+        top: 36%;
+    }
+}
+
+@keyframes coin2fall {
+    from {
+        top: -112%;
+    }
+
+    to {
+        top: 25%;
+    }
+}
+
+.graphics_grafick svg {
+    position: absolute;
+    width: 60%;
+    top: 10%;
+    left: 17%;
+}
+
+#line {
+    stroke-dashoffset: 465;
+}
+
+.drawLine {
+    -moz-animation: dashStroke 5s linear forwards;
+    -o-animation: dashStroke 5s linear forwards;
+    -webkit-animation: dashStroke 5s linear forwards;
+    animation: dashStroke 5s linear forwards;
+}
+
+@keyframes dashStroke {
+    from {
+        stroke-dashoffset: 465;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
 
 .graphics_text {
     font-family: 'Open Sans', sans-serif;
@@ -845,14 +961,13 @@ nav svg {
 
 
 
-/*TEMP CLASSES!*/
-.cpanel3_any_spiner {
+.cpanel3_services_spiner,.cpanel3_funding_spiner,.cpanel3_investing_spiner {
     width: 100%;
     height: 85%;
     position: relative;
 }
 
-    .cpanel3_any_spiner img {
+    .cpanel3_services_spiner canvas,.cpanel3_funding_spiner canvas,.cpanel3_investing_spiner canvas {
         margin: 0 auto;
         position: relative;
         -moz-transform: translateY(-50%);
@@ -862,39 +977,442 @@ nav svg {
         transform: translateY(-50%);
         top: 50%;
         display: block;
-        margin: 0 auto;
     }
 
 /*Cpanel4*/
+.content_cpanel4_wraper {
+    width: 100%;
+    height: 55%;
+}
+
+.content_cpanel4_services, .content_cpanel4_investing, .content_cpanel4_funding {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+}
+
+.cpanel4_any_title {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #ecf0f1;
+    font-size: 35px;
+    font-weight: 300;
+    letter-spacing: 0.075em;
+    line-height: 44px;
+    vertical-align: middle;
+    padding-top: 10%;
+}
+
+.cpanel4_services_titleNumber, .cpanel4_funding_titleNumber, .cpanel4_investing_titleNumber {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 57px;
+    font-weight: 600;
+}
+
+.cpanel4_services_titleNumber {
+    color: #fc6042;
+}
+
+.cpanel4_funding_titleNumber {
+    color: #2cc98f;
+}
+
+.cpanel4_investing_titleNumber {
+    color: #fbba41;
+}
+
+.cpanel4_any_explain {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #ecf0f1;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    line-height: 44px;
+    vertical-align: middle;
+}
+
+.content_cpanel4_hiddenPanel {
+    width: 100%;
+    height: 45%;
+}
+
+.cpanel4_hiddenPanel_findOut {
+    width: 100%;
+    height: 100%;
+    font-size: 36px;
+    font-family: "Open Sans";
+    color: rgb(236, 240, 241);
+    text-align: center;
+    letter-spacing: 0.075em;
+    font-weight: 300;
+    padding: 6% 0px;
+    opacity: 0;
+}
+
+.coin {
+    background-image: url('../images/dev_ass/Investing/coin.png');
+    width: 33px;
+    height: 32px;
+    position: absolute;
+}
+
+.coin1 {
+    top: -88%;
+    left: 38%;
+}
+
+.coin2 {
+    top: -112%;
+    left: 50%;
+}
+
+.rotateLos {
+    -moz-animation: losSpin 5s linear forwards;
+    -o-animation: losSpin 5s linear forwards;
+    -webkit-animation: losSpin 5s linear forwards;
+    animation: losSpin 5s linear forwards;
+}
+
+@-moz-keyframes losSpin {
+    0% {
+        transform: rotateZ(-180deg);
+    }
+
+    30% {
+        transform: rotateZ(-150deg);
+    }
+
+    50% {
+        transform: rotateZ(-162deg);
+    }
+
+    60% {
+        transform: rotateZ(-126deg);
+    }
+
+    70% {
+        transform: rotateZ(-133deg);
+    }
+
+    80% {
+        transform: rotateZ(-109deg);
+    }
+
+    85% {
+        transform: rotateZ(-118deg);
+    }
+
+    90% {
+        transform: rotateZ(-98deg);
+    }
+
+    100% {
+        transform: rotateZ(-71deg);
+    }
+}
+
+@-webkit-keyframes losSpin {
+    0% {
+        transform: rotateZ(-180deg);
+    }
+
+    30% {
+        transform: rotateZ(-150deg);
+    }
+
+    50% {
+        transform: rotateZ(-162deg);
+    }
+
+    60% {
+        transform: rotateZ(-126deg);
+    }
+
+    70% {
+        transform: rotateZ(-133deg);
+    }
+
+    80% {
+        transform: rotateZ(-109deg);
+    }
+
+    85% {
+        transform: rotateZ(-118deg);
+    }
+
+    90% {
+        transform: rotateZ(-98deg);
+    }
+
+    100% {
+        transform: rotateZ(-71deg);
+    }
+}
+
+@keyframes losSpin {
+    0% {
+        transform: rotateZ(-180deg);
+    }
+
+    30% {
+        transform: rotateZ(-150deg);
+    }
+
+    50% {
+        transform: rotateZ(-162deg);
+    }
+
+    60% {
+        transform: rotateZ(-126deg);
+    }
+
+    70% {
+        transform: rotateZ(-133deg);
+    }
+
+    80% {
+        transform: rotateZ(-109deg);
+    }
+
+    85% {
+        transform: rotateZ(-118deg);
+    }
+
+    90% {
+        transform: rotateZ(-98deg);
+    }
+
+    100% {
+        transform: rotateZ(-71deg);
+    }
+}
 
 
 
-/*  font-size: 16px;
-  font-family: "Open Sans";
-  color: rgb(236, 240, 241);
-  line-height: 2.25;
-  text-align: center;
-  position: absolute;
-  left: 831.534px;
-    letter-spacing :0.1em;
 
-  top: 579.289px;
-  width: 259px;
-  height: 17px;
-  z-index: 39;*/
+.rotateWin {
+    -moz-animation: winSpin 5s linear forwards;
+    -o-animation: winSpin 5s linear forwards;
+    -webkit-animation: winSpin 5s linear forwards;
+    animation: winSpin 5s linear forwards;
+}
 
+@-moz-keyframes winSpin {
+    0% {
+        transform: rotateZ(-180deg);
+    }
 
+    30% {
+        transform: rotateZ(-170deg);
+    }
 
-/*.RotateAnim{animation:spin 1s linear forwards;} animation for arrow spin
-@keyframes spin{
-    0%{transform:rotateZ(-145deg)}
-    30%{transform:rotateZ(-165deg)}
-    50%{transform:rotateZ(-135deg)}
-    60%{transform:rotateZ(-130deg)}
-    70%{transform:rotateZ(-135deg)}
-    80%{transform:rotateZ(-100deg)}
-    85%{transform:rotateZ(-110deg)}
-    90%{transform:rotateZ(-115deg)}
-    100%{transform:rotateZ(-95deg)}
-}*/
+    50% {
+        transform: rotateZ(-165deg);
+    }
+
+    60% {
+        transform: rotateZ(-150deg);
+    }
+
+    70% {
+        transform: rotateZ(-160deg);
+    }
+
+    80% {
+        transform: rotateZ(-162deg);
+    }
+
+    85% {
+        transform: rotateZ(-159deg);
+    }
+
+    90% {
+        transform: rotateZ(-140deg);
+    }
+
+    100% {
+        transform: rotateZ(-135deg);
+    }
+}
+
+@-webkit-keyframes winSpin {
+    0% {
+        transform: rotateZ(-180deg);
+    }
+
+    30% {
+        transform: rotateZ(-170deg);
+    }
+
+    50% {
+        transform: rotateZ(-165deg);
+    }
+
+    60% {
+        transform: rotateZ(-150deg);
+    }
+
+    70% {
+        transform: rotateZ(-160deg);
+    }
+
+    80% {
+        transform: rotateZ(-162deg);
+    }
+
+    85% {
+        transform: rotateZ(-159deg);
+    }
+
+    90% {
+        transform: rotateZ(-140deg);
+    }
+
+    100% {
+        transform: rotateZ(-135deg);
+    }
+}
+
+@keyframes winSpin {
+    0% {
+        transform: rotateZ(-180deg);
+    }
+
+    30% {
+        transform: rotateZ(-170deg);
+    }
+
+    50% {
+        transform: rotateZ(-165deg);
+    }
+
+    60% {
+        transform: rotateZ(-150deg);
+    }
+
+    70% {
+        transform: rotateZ(-160deg);
+    }
+
+    80% {
+        transform: rotateZ(-162deg);
+    }
+
+    85% {
+        transform: rotateZ(-159deg);
+    }
+
+    90% {
+        transform: rotateZ(-140deg);
+    }
+
+    100% {
+        transform: rotateZ(-135deg);
+    }
+}
+
+.banknotesMove {
+    -moz-animation: Bmove 1s linear forwards;
+    -o-animation: Bmove 1s linear forwards;
+    -webkit-animation: Bmove 1s linear forwards;
+    animation: Bmove 1s linear forwards;
+    animation-iteration-count: 5;
+}
+
+@keyframes Bmove {
+    0% {
+        left: -30%;
+        top: 40%;
+    }
+
+    20% {
+        left: -4%;
+        top: 30%;
+    }
+
+    40% {
+        left: 22%;
+        top: 20%;
+    }
+
+    60% {
+        left: 48%;
+        top: 20%;
+    }
+
+    80% {
+        left: 74%;
+        top: 30%;
+    }
+
+    100% {
+        left: 100%;
+        top: 40%;
+    }
+}
+
+@-moz-keyframes Bmove {
+    0% {
+        left: -30%;
+        top: 40%;
+    }
+
+    20% {
+        left: -4%;
+        top: 30%;
+    }
+
+    40% {
+        left: 22%;
+        top: 20%;
+    }
+
+    60% {
+        left: 48%;
+        top: 20%;
+    }
+
+    80% {
+        left: 74%;
+        top: 30%;
+    }
+
+    100% {
+        left: 100%;
+        top: 40%;
+    }
+}
+
+@-webkit-keyframes Bmove {
+    0% {
+        left: -30%;
+        top: 40%;
+    }
+
+    20% {
+        left: -4%;
+        top: 30%;
+    }
+
+    40% {
+        left: 22%;
+        top: 20%;
+    }
+
+    60% {
+        left: 48%;
+        top: 20%;
+    }
+
+    80% {
+        left: 74%;
+        top: 30%;
+    }
+
+    100% {
+        left: 100%;
+        top: 40%;
+    }
+}
 /*content end*/
