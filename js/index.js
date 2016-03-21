@@ -113,11 +113,16 @@ $(window).ready(function () {
         panel.css({ 'left': '-85px' })
         panelBorder.css({ 'top': '35px', 'height': '0px', 'left': '-85px' })
     }
-
+    $(window).on('scroll', function () {
+        if (window.pageYOffset == Math.round($('#content').offset().top)) {
+            $('#services').trigger('click');
+            $(window).off('scroll');
+        }
+    })
     function menuMouseClick() {//make another orientation for active change
         if (!$(this).hasClass('menu_active') && $(this).attr('id') !== currentBlock && !inProgress) {
             inProgress = true;
-            currentBlock = ($(this).attr('id') == 'home') ? currentBlock : $(this).attr('id');
+            currentBlock = $(this).attr('id');
             oldBlock = ($('.menu_active').attr('id') == 'home') ? oldBlock : $('.menu_active').attr('id');
             if ($('.menu_item').index($(this)) > $('.menu_item').index($('.menu_active'))) {//check up or down anumation
                 $('.menu_active').find('.nav_overlay_border').animate({
@@ -142,7 +147,7 @@ $(window).ready(function () {
                 $(this).addClass('menu_active');
             }
             if ($(this).attr('id') == 'home') {//if pressed HOME we scroll to top of page
-                $('body,html').animate({ scrollTop: 0 }, 1500, 'linear');
+                $('body,html').animate({ scrollTop: 0 }, 1500, 'linear', function () { inProgress = false; });
             } else {//in other case we check viewport positiin
                 if (window.pageYOffset !== Math.round($('#content').offset().top)) {//if viewport not in content section then scroll to section
                     var ContentTop = Math.round($('#content').offset().top), actor = this;

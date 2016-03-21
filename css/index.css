@@ -494,6 +494,7 @@ nav svg {
     width: 62%;
     height: 0;/*43%*/
     overflow: hidden;
+    position:relative;
 }
 .content_cpanel5_border {
     border-top: 1px solid;

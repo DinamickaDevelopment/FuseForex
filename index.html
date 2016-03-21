@@ -10,7 +10,18 @@
     <link href="css/index.css" rel="stylesheet" />
 
 </head>
+
 <body style="margin:0;padding:0;height:100%;">
+    <script>
+        if (window.innerWidth < 1300 || window.innerHeight < 550) {
+            window.location.replace("blank.html");
+        }
+        window.addEventListener('resize', function () {
+            if (window.innerWidth < 1300 || window.innerHeight < 550) {
+                window.location.replace("blank.html");
+            }
+        }, false);
+    </script>
     <div id="Stage" class="Cards_comp"></div>
     <div class="bg-nonlayer" data-0p="opacity:0;" data-1p="opacity:1;">
         <!-- проблема с высотой фишек на ФУЛЛхд оптимальные значения старт:61% - финиш:73% -->
@@ -143,7 +154,7 @@
                             </div>
                         </div>
                         <div class="content_cpanel2_investing" style="overflow:visible;">
-                            <div class="cpanel2_investing_counter"><span class="cpanel2_investing_numeric"><span id="cpanel2_investing_numeric_coun" >0</span>%</span> Invested</div>
+                            <div class="cpanel2_investing_counter"><span class="cpanel2_investing_numeric"><span id="cpanel2_investing_numeric_coun">0</span>%</span> Invested</div>
                             <div class="cpanel2_investing_graphics">
                                 <div class="cpanel2_investing_graphics_moneybox">
                                     <div class="graphics_moneybox">
@@ -209,11 +220,11 @@
                             <div class="cpanel4_hiddenPanel_formWraper"></div>
                         </div>
                     </div>
-                    <!--<div class="content_panel cpanel5">
+                    <div class="content_panel cpanel5">
                         <div class="content_cpanel5_border"></div>
-                        <div class="cpanel5_hiddenPanel_findOut"><span id="FindMore" style="cursor:pointer">FIND OUT MORE <span style="font-weight:bold">></span></span></div>
-                        <div class="cpanel5_hiddenPanel_formWraper"></div>
-                    </div>-->
+                        <div class="cpanel5_closeIco">&#88;</div>
+                        <div class="cpanel5_formWraper"></div>
+                    </div>
                 </div>
             </div>
         </div>
