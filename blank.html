@@ -5,6 +5,20 @@
 	<meta charset="utf-8" />
 </head>
 <body>
+    <script>
+        if (window.innerWidth > 1300 && window.innerHeight > 550) {
+            window.location.replace("index.html");
+        }
+        window.addEventListener('resize', function () {
+            setTimeout(function () {
+                if (window.innerWidth > 1300 && window.innerHeight > 550) {
+                    window.location.replace("index.html");
+                }
+            })
+
+        }, false);
+    </script>
+
     <h1 style="width: 69%; text-align: center; margin: 70px auto;">Hey, if you're reading this, it means that your screen resolution does not match the required size. Sorry!</h1>
 </body>
 </html>
