@@ -4,7 +4,7 @@
 
 
 $(window).ready(function () {
-    var firstanim = true, inProgress = false, oldBlock,currentBlock;
+    var firstanim = true, firstanimSinglecard = true, inProgress = false, oldBlock, currentBlock;
     //Browser check
     function cBrowser() {
         var ua = navigator.userAgent;
@@ -113,13 +113,20 @@ $(window).ready(function () {
         panel.css({ 'left': '-85px' })
         panelBorder.css({ 'top': '35px', 'height': '0px', 'left': '-85px' })
     }
+
+
     $(window).on('scroll', function () {
-        if (window.pageYOffset == Math.round($('#content').offset().top)) {
+
+        if (window.pageYOffset >= Math.round($('#content').offset().top) && firstanim) {
+            disableScroll(true);
             $('#services').trigger('click');
-            $(window).off('scroll');
+        }// seems like problem like recalling contentAnimation function....recheck trigger function!
+        //problem found - page animation called on body and html at the same time, insted just body
+        if (window.pageYOffset >= Math.round($('footer').offset().top)) {
+            singleCardAnimation('70%');
         }
     })
-    function menuMouseClick() {//make another orientation for active change
+    function menuMouseClick(event) {//make another orientation for active change
         if (!$(this).hasClass('menu_active') && $(this).attr('id') !== currentBlock && !inProgress) {
             inProgress = true;
             currentBlock = $(this).attr('id');
@@ -151,8 +158,10 @@ $(window).ready(function () {
             } else {//in other case we check viewport positiin
                 if (window.pageYOffset !== Math.round($('#content').offset().top)) {//if viewport not in content section then scroll to section
                     var ContentTop = Math.round($('#content').offset().top), actor = this;
-                    $('body,html').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
+                    $('body').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
+                        disableScroll(false);
                         contentAnimation(actor, oldBlock);
+
                     });
                 } else {//in other case start content animation
                     contentAnimation(this, oldBlock);
@@ -161,7 +170,7 @@ $(window).ready(function () {
         }
 
     }
-
+   
     //entry menu animation
     function recurAnimMenu(MenuElem) {
         var animTime = 400
@@ -201,6 +210,7 @@ $(window).ready(function () {
 
     //Content Animation
     function contentAnimation(target, old) {
+
         if (firstanim) {
             $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, 1000, 'linear',
                 function () {
@@ -441,6 +451,25 @@ $(window).ready(function () {
                 })
         }
 
+    }
+    function singleCardAnimation(a) {
+        if (firstanimSinglecard) {
+            firstanimSinglecard = false;
+            $('.photoText_photo_border').circleProgress({
+                startAngle: -Math.PI / 2,
+                value: 1,
+                thickness: 10,
+                emptyFill: 'rgba(0,0,0,0)',
+                size: 110,
+                animation: { duration: 30000, easing: "linear" },
+                fill: { color: '#0692ca' }
+            })
+            //card 1
+            $('.steveConeh_text2_profit').countTo({ from: 0, to: 6317, speed: 30000, refreshInterval: 20 })
+            $('.georgeSoros_text2_number').countTo({ from: 0, to: 11486, speed: 30000, refreshInterval: 20 })
+            $('.larryRobbins_text2_profit_number').countTo({ from: 0, to: 2496, speed: 30000, refreshInterval: 20 })
+            $('.rayDalio_text2_counter').countTo({ from: 0, to: 8531, speed: 30000, refreshInterval: 20 })
+        }
     }
 
     a = setTimeout(recurAnimMenu, 4000, '#home');

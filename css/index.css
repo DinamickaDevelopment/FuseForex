@@ -417,6 +417,10 @@ nav svg {
     border-color: #fbba41 !important;
 }
 
+.homeColor {
+    border-color: #0692ca !important;
+}
+
 .cpanel_sefborder_left {
     border-left: 1px solid;
 }
@@ -489,13 +493,15 @@ nav svg {
     top: -1px;
     position: absolute;
 }
+
 .cpanel5 {
     float: right;
     width: 62%;
-    height: 0;/*43%*/
+    height: 0; /*43%*/
     overflow: hidden;
-    position:relative;
+    position: relative;
 }
+
 .content_cpanel5_border {
     border-top: 1px solid;
     border-color: inherit;
@@ -504,7 +510,7 @@ nav svg {
     top: -1px;
     position: absolute;
 }
-    /*Border and content panel appear animation end*/
+/*Border and content panel appear animation end*/
 .content_cpanel1 {
     width: 100%;
     height: 100%;
@@ -729,6 +735,9 @@ nav svg {
     }
 
 .animationMoney {
+    -moz-animation: test1 5s linear forwards;
+    -o-animation: test1 5s linear forwards;
+    -webkit-animation: test1 5s linear forwards;
     animation: test1 5s linear forwards;
 }
 
@@ -743,6 +752,9 @@ nav svg {
 }
 
 .money_trader_full.animationMoney img {
+    -moz-animation: test2 5s linear forwards;
+    -o-animation: test2 5s linear forwards;
+    -webkit-animation: test2 5s linear forwards;
     animation: test2 5s linear forwards;
 }
 
@@ -857,12 +869,24 @@ nav svg {
     }
 
     .graphics_moneybox.coinFals .coin1 {
+        -moz-animation: coin1fall 2.5s linear forwards;
+        -o-animation: coin1fall 2.5s linear forwards;
+        -webkit-animation: coin1fall 2.5s linear forwards;
         animation: coin1fall 2.5s linear forwards;
+        -moz-animation-iteration-count: 2;
+        -o-animation-iteration-count: 2;
+        -webkit-animation-iteration-count: 2;
         animation-iteration-count: 2;
     }
 
     .graphics_moneybox.coinFals .coin2 {
+        -moz-animation: coin2fall 2.5s linear forwards;
+        -o-animation: coin2fall 2.5s linear forwards;
+        -webkit-animation: coin2fall 2.5s linear forwards;
         animation: coin2fall 2.5s linear forwards;
+        -moz-animation-iteration-count: 2;
+        -o-animation-iteration-count: 2;
+        -webkit-animation-iteration-count: 2;
         animation-iteration-count: 2;
     }
 
@@ -962,13 +986,13 @@ nav svg {
 
 
 
-.cpanel3_services_spiner,.cpanel3_funding_spiner,.cpanel3_investing_spiner {
+.cpanel3_services_spiner, .cpanel3_funding_spiner, .cpanel3_investing_spiner {
     width: 100%;
     height: 85%;
     position: relative;
 }
 
-    .cpanel3_services_spiner canvas,.cpanel3_funding_spiner canvas,.cpanel3_investing_spiner canvas {
+    .cpanel3_services_spiner canvas, .cpanel3_funding_spiner canvas, .cpanel3_investing_spiner canvas {
         margin: 0 auto;
         position: relative;
         -moz-transform: translateY(-50%);
@@ -1047,7 +1071,7 @@ nav svg {
     text-align: center;
     letter-spacing: 0.075em;
     font-weight: 300;
-    padding: 6% 0px;
+    padding: 6% 0;
     opacity: 0;
 }
 
@@ -1077,114 +1101,148 @@ nav svg {
 
 @-moz-keyframes losSpin {
     0% {
+        -moz-transform: rotateZ(-180deg);
+        -ms-transform: rotateZ(-180deg);
+        -o-transform: rotateZ(-180deg);
+        -webkit-transform: rotateZ(-180deg);
         transform: rotateZ(-180deg);
     }
 
     30% {
+        -moz-transform: rotateZ(-150deg);
+        -ms-transform: rotateZ(-150deg);
+        -o-transform: rotateZ(-150deg);
+        -webkit-transform: rotateZ(-150deg);
         transform: rotateZ(-150deg);
     }
 
     50% {
+        -moz-transform: rotateZ(-162deg);
+        -ms-transform: rotateZ(-162deg);
+        -o-transform: rotateZ(-162deg);
+        -webkit-transform: rotateZ(-162deg);
         transform: rotateZ(-162deg);
     }
 
     60% {
+        -moz-transform: rotateZ(-126deg);
+        -ms-transform: rotateZ(-126deg);
+        -o-transform: rotateZ(-126deg);
+        -webkit-transform: rotateZ(-126deg);
         transform: rotateZ(-126deg);
     }
 
     70% {
+        -moz-transform: rotateZ(-133deg);
+        -ms-transform: rotateZ(-133deg);
+        -o-transform: rotateZ(-133deg);
+        -webkit-transform: rotateZ(-133deg);
         transform: rotateZ(-133deg);
     }
 
     80% {
+        -moz-transform: rotateZ(-109deg);
+        -ms-transform: rotateZ(-109deg);
+        -o-transform: rotateZ(-109deg);
+        -webkit-transform: rotateZ(-109deg);
         transform: rotateZ(-109deg);
     }
 
     85% {
+        -moz-transform: rotateZ(-118deg);
+        -ms-transform: rotateZ(-118deg);
+        -o-transform: rotateZ(-118deg);
+        -webkit-transform: rotateZ(-118deg);
         transform: rotateZ(-118deg);
     }
 
     90% {
+        -moz-transform: rotateZ(-98deg);
+        -ms-transform: rotateZ(-98deg);
+        -o-transform: rotateZ(-98deg);
+        -webkit-transform: rotateZ(-98deg);
         transform: rotateZ(-98deg);
     }
 
     100% {
+        -moz-transform: rotateZ(-71deg);
+        -ms-transform: rotateZ(-71deg);
+        -o-transform: rotateZ(-71deg);
+        -webkit-transform: rotateZ(-71deg);
         transform: rotateZ(-71deg);
     }
 }
 
 @-webkit-keyframes losSpin {
     0% {
+        -moz-transform: rotateZ(-180deg);
+        -ms-transform: rotateZ(-180deg);
+        -o-transform: rotateZ(-180deg);
+        -webkit-transform: rotateZ(-180deg);
         transform: rotateZ(-180deg);
     }
 
     30% {
+        -moz-transform: rotateZ(-150deg);
+        -ms-transform: rotateZ(-150deg);
+        -o-transform: rotateZ(-150deg);
+        -webkit-transform: rotateZ(-150deg);
         transform: rotateZ(-150deg);
     }
 
     50% {
+        -moz-transform: rotateZ(-162deg);
+        -ms-transform: rotateZ(-162deg);
+        -o-transform: rotateZ(-162deg);
+        -webkit-transform: rotateZ(-162deg);
         transform: rotateZ(-162deg);
     }
 
     60% {
+        -moz-transform: rotateZ(-126deg);
+        -ms-transform: rotateZ(-126deg);
+        -o-transform: rotateZ(-126deg);
+        -webkit-transform: rotateZ(-126deg);
         transform: rotateZ(-126deg);
     }
 
     70% {
+        -moz-transform: rotateZ(-133deg);
+        -ms-transform: rotateZ(-133deg);
+        -o-transform: rotateZ(-133deg);
+        -webkit-transform: rotateZ(-133deg);
         transform: rotateZ(-133deg);
     }
 
     80% {
+        -moz-transform: rotateZ(-109deg);
+        -ms-transform: rotateZ(-109deg);
+        -o-transform: rotateZ(-109deg);
+        -webkit-transform: rotateZ(-109deg);
         transform: rotateZ(-109deg);
     }
 
     85% {
+        -moz-transform: rotateZ(-118deg);
+        -ms-transform: rotateZ(-118deg);
+        -o-transform: rotateZ(-118deg);
+        -webkit-transform: rotateZ(-118deg);
         transform: rotateZ(-118deg);
     }
 
     90% {
+        -moz-transform: rotateZ(-98deg);
+        -ms-transform: rotateZ(-98deg);
+        -o-transform: rotateZ(-98deg);
+        -webkit-transform: rotateZ(-98deg);
         transform: rotateZ(-98deg);
     }
 
     100% {
-        transform: rotateZ(-71deg);
-    }
-}
-
-@keyframes losSpin {
-    0% {
-        transform: rotateZ(-180deg);
-    }
-
-    30% {
-        transform: rotateZ(-150deg);
-    }
-
-    50% {
-        transform: rotateZ(-162deg);
-    }
-
-    60% {
-        transform: rotateZ(-126deg);
-    }
-
-    70% {
-        transform: rotateZ(-133deg);
-    }
-
-    80% {
-        transform: rotateZ(-109deg);
-    }
-
-    85% {
-        transform: rotateZ(-118deg);
-    }
-
-    90% {
-        transform: rotateZ(-98deg);
-    }
-
-    100% {
+        -moz-transform: rotateZ(-71deg);
+        -ms-transform: rotateZ(-71deg);
+        -o-transform: rotateZ(-71deg);
+        -webkit-transform: rotateZ(-71deg);
         transform: rotateZ(-71deg);
     }
 }
@@ -1201,38 +1259,74 @@ nav svg {
 
 @-moz-keyframes winSpin {
     0% {
+        -moz-transform: rotateZ(-180deg);
+        -ms-transform: rotateZ(-180deg);
+        -o-transform: rotateZ(-180deg);
+        -webkit-transform: rotateZ(-180deg);
         transform: rotateZ(-180deg);
     }
 
     30% {
+        -moz-transform: rotateZ(-170deg);
+        -ms-transform: rotateZ(-170deg);
+        -o-transform: rotateZ(-170deg);
+        -webkit-transform: rotateZ(-170deg);
         transform: rotateZ(-170deg);
     }
 
     50% {
+        -moz-transform: rotateZ(-165deg);
+        -ms-transform: rotateZ(-165deg);
+        -o-transform: rotateZ(-165deg);
+        -webkit-transform: rotateZ(-165deg);
         transform: rotateZ(-165deg);
     }
 
     60% {
+        -moz-transform: rotateZ(-150deg);
+        -ms-transform: rotateZ(-150deg);
+        -o-transform: rotateZ(-150deg);
+        -webkit-transform: rotateZ(-150deg);
         transform: rotateZ(-150deg);
     }
 
     70% {
+        -moz-transform: rotateZ(-160deg);
+        -ms-transform: rotateZ(-160deg);
+        -o-transform: rotateZ(-160deg);
+        -webkit-transform: rotateZ(-160deg);
         transform: rotateZ(-160deg);
     }
 
     80% {
+        -moz-transform: rotateZ(-162deg);
+        -ms-transform: rotateZ(-162deg);
+        -o-transform: rotateZ(-162deg);
+        -webkit-transform: rotateZ(-162deg);
         transform: rotateZ(-162deg);
     }
 
     85% {
+        -moz-transform: rotateZ(-159deg);
+        -ms-transform: rotateZ(-159deg);
+        -o-transform: rotateZ(-159deg);
+        -webkit-transform: rotateZ(-159deg);
         transform: rotateZ(-159deg);
     }
 
     90% {
+        -moz-transform: rotateZ(-140deg);
+        -ms-transform: rotateZ(-140deg);
+        -o-transform: rotateZ(-140deg);
+        -webkit-transform: rotateZ(-140deg);
         transform: rotateZ(-140deg);
     }
 
     100% {
+        -moz-transform: rotateZ(-135deg);
+        -ms-transform: rotateZ(-135deg);
+        -o-transform: rotateZ(-135deg);
+        -webkit-transform: rotateZ(-135deg);
         transform: rotateZ(-135deg);
     }
 }
@@ -1318,6 +1412,9 @@ nav svg {
     -o-animation: Bmove 1s linear forwards;
     -webkit-animation: Bmove 1s linear forwards;
     animation: Bmove 1s linear forwards;
+    -moz-animation-iteration-count: 5;
+    -o-animation-iteration-count: 5;
+    -webkit-animation-iteration-count: 5;
     animation-iteration-count: 5;
 }
 
@@ -1417,3 +1514,582 @@ nav svg {
     }
 }
 /*content end*/
+/*FOOTER*/
+
+.servicesText {
+    color: #f15f40 !important;
+}
+
+.fundingText {
+    color: #2cc98f !important;
+}
+
+.investingText {
+    color: #fbba41 !important;
+}
+
+.homeText {
+    color: #0692ca !important;
+}
+
+footer {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/foo.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.foo_cards_wrapper {
+    width: 100%;
+    text-align: center;
+    height: 405px;
+}
+
+.foo_singlecard_container {
+    display: inline-block;
+    width: 266px;
+    height: 380px;
+    margin: 25px 10px 0;
+    position: relative;
+}
+
+.singlecard_container_border {
+    border-left: 1px solid;
+    border-color: inherit;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+}
+
+.singlecard {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    background-color: rgba(23,26,29,.8);
+    overflow: hidden;
+}
+
+.singlecard_header {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 1.25em;
+    color: inherit;
+    margin: 10px 0;
+    height: 8%;
+    letter-spacing: 0.095em;
+}
+
+.singlecard_photoText_wraper {
+    height: 30%;
+    width: 100%;
+}
+
+.singlecard_photoText_photo, .singlecard_photoText_Text {
+    height: 100%;
+    display: inline-block;
+}
+
+.singlecard_photoText_Text {
+    width: 45%;
+}
+
+.singlecard_photoText_photo {
+    float: left;
+    width: 55%;
+}
+
+.photoText_Text_quote, .photoText_Text_summ {
+    height: 50%;
+    width: 100%;
+}
+
+.photoText_Text_quote {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 0.750em;
+    letter-spacing: 0.020em;
+    color: #ecf0f1;
+    text-align: right;
+}
+
+.photoText_Text_summ_netWorth {
+    width: 55%;
+    height: 100%;
+    float: left;
+    text-align: left;
+}
+
+.photoText_Text_summ_number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.750em;
+    color: #ecf0f1;
+    letter-spacing: -0.020em;
+    width: 45%;
+    height: 100%;
+    float: left;
+    text-align: right;
+    padding: 0 5px;
+}
+
+.counter_services {
+    border-bottom: 2px solid #f15f40;
+}
+
+.counter_investing {
+    border-bottom: 2px solid #fbba41;
+}
+
+.counter_funding {
+    border-bottom: 2px solid #2cc98f;
+}
+
+.counter_home {
+    border-bottom: 2px solid #0692ca;
+}
+
+.netWorth_billion {
+    text-align: left;
+    width: 100%;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 600;
+    font-size: 1.125em;
+    letter-spacing: -0.030em;
+    color: #ecf0f1;
+}
+
+.netWorth_itself {
+    width: 100%;
+    white-space: nowrap;
+    font-family: 'Oswald',sans-serif;
+    font-weight: 300;
+    font-size: 0.875em;
+    letter-spacing: 0.010em;
+    color: #ecf0f1;
+}
+
+.summ_number_decimal {
+    font-size: 0.688em;
+}
+
+.singlecard_information_wrapper {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+}
+
+.steveConeh_text1 {
+    display: inline-block;
+    width: 30%;
+}
+
+    .steveConeh_text1 span {
+        font-family: 'Oswald',sans-serif;
+    }
+
+.steveConeh_text1_and {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: 0.030em;
+}
+
+.steveConeh_text1_just {
+    font-size: 0.725em;
+    color: #f15f40;
+    font-weight: 400;
+    letter-spacing: 0.028em;
+}
+
+.steveConeh_text1_made {
+    font-size: 1.188em;
+    color: #ecf0f1;
+    font-weight: 600;
+    letter-spacing: 0.028em;
+}
+.steveConeh_text2 {
+    display: inline-block;
+    width: 40%;
+}
+
+.steveConeh_text2_sign {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.4em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: -0.13em;
+    vertical-align: top;
+    position: relative;
+    top: 8px;
+}
+
+.steveConeh_text2_profit {
+    font-family: 'Oswald',sans-serif;
+    font-size: 2.188em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: 0.020em;
+}
+
+.steveConeh_text3 {
+    display: inline-block;
+    width: 30%;
+}
+
+.steveConeh_text3_more {
+    font-family: 'Oswald',sans-serif;
+    font-size: 1.588em;
+    color: #ecf0f1;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    border-bottom: 2px solid #f15f40;
+}
+
+.singlecard_endPhrase {
+    width: 100%;
+    height: 12%;
+    text-transform: uppercase;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 0.750em;
+    color: #ecf0f1;
+    letter-spacing: 0.060em;
+}
+
+.georgeSoros_text1 {
+    width: 50%;
+    border-right: 2px solid;
+    text-align: right;
+    padding-right: 1%;
+    line-height: 18px;
+}
+
+.georgeSoros_text1_sailed {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.188em;
+    color: #ecf0f1;
+    font-weight: 600;
+    letter-spacing: 0.010em;
+    text-transform: uppercase;
+}
+
+.georgeSoros_text1_away {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 0.750em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: 0.135em;
+    text-transform: uppercase;
+}
+
+.georgeSoros_text1_from {
+    font-family: 'Oswald',sans-serif;
+    font-size: 1.313em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: 0.020em;
+}
+
+.georgeSoros_text1_humanBeing {
+    font-family: 'Oswald',sans-serif;
+    font-size: 0.875em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: 0.040em;
+}
+
+
+.georgeSoros_text2 {
+}
+
+.georgeSoros_text2_for {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 0.938em;
+    color: #fbba41;
+    font-weight: 300;
+    letter-spacing: 0.040em;
+    margin: 0 -2px 0 3px;
+    vertical-align: super;
+    position: relative;
+    bottom: 5px;
+}
+
+.georgeSoros_text2_sign {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.4em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: -0.13em;
+    vertical-align: top;
+    position: relative;
+    top: 8px;
+}
+
+.georgeSoros_text2_number {
+    font-family: 'Oswald',sans-serif;
+    font-size: 2em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: 0.015em;
+}
+
+.larryRobbins_information_wrapper {
+    display: block;
+    padding: 13% 0;
+}
+
+.larryRobbins_text1 {
+    display: inline-block;
+}
+
+.larryRobbins_text2 {
+    display: inline-flex;
+    width: 100%;
+}
+
+.larryRobbins_text1_wrapper {
+    font-family: Oswald,sans-serif;
+    font-size: 1.125em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: 0.010em;
+    text-transform: uppercase;
+}
+
+.larryRobbins_text1_dot {
+    color: #2cc98f;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.063em;
+    font-weight: 600;
+}
+
+.larryRobbins_text1_money {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.063em;
+    font-weight: 600;
+    color: #ecf0f1;
+    letter-spacing: 0.010em;
+}
+
+.larryRobbins_text2_means, .larryRobbins_text2_wasmade {
+    width: 30%;
+}
+ .larryRobbins_text2_profit{
+     width:40%
+ }
+.larryRobbins_text2_means {
+    font-family: Oswald,sans-serif;
+    font-weight: 400;
+    font-size: 1.125em;
+    color: #2cc98f;
+    letter-spacing: 0.090em;
+    line-height: 47px;
+}
+
+.larryRobbins_text2_means_border {
+    border-bottom: 2px solid #2cc98f;
+}
+
+
+
+.larryRobbins_text2_profit_sign {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.4em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: -0.13em;
+    vertical-align: top;
+    position: relative;
+    top: 8px;
+}
+
+.larryRobbins_text2_profit_number {
+    font-family: 'Oswald',sans-serif;
+    font-size: 2em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: 0.015em;
+}
+
+.larryRobbins_text2_wasmade {
+    line-height: 47px;
+}
+
+.larryRobbins_text2_was {
+    font-family: 'Oswald',sans-serif;
+    font-size: 0.813em;
+    color: #2cc98f;
+    font-weight: 300;
+    letter-spacing: -0.010em;
+}
+
+.larryRobbins_text2_made {
+    font-family: 'Oswald',sans-serif;
+    font-size: 1.125em;
+    color: #ecf0f1;
+    font-weight: 400;
+    letter-spacing: 0.050em;
+    text-transform: uppercase;
+    position: relative;
+    top: 3px;
+}
+
+.rayDalio_text1, .rayDalio_text1 {
+    width: 50%;
+}
+
+.rayDalio_text1_row1_by {
+    background-color: #0692ca;
+    font-family: 'Open Sans', sans-serif;
+    color: #ecf0f1;
+    font-style: italic;
+    font-weight: 600;
+    padding: 1px 7px;
+    letter-spacing: 0.01em;
+    font-size: 0.813em;
+    position: relative;
+    bottom: 4px;
+}
+
+.rayDalio_text1_row1_pushing {
+    font-family: 'Oswald',sans-serif;
+    font-size: 1.125em;
+    color: #ecf0f1;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.rayDalio_text1_row2_rightButtons {
+    font-family: Oswald,sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    color: #ecf0f1;
+    letter-spacing: 0.095em;
+}
+
+.rayDalio_text1_row3_ray {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 0.875em;
+    font-weight: 600;
+    color: #ecf0f1;
+    letter-spacing: 0;
+}
+
+.rayDalio_text1_row3_earned {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.063em;
+    font-weight: 300;
+    color: #ecf0f1;
+    letter-spacing: 0.067em;
+    text-transform: uppercase;
+}
+
+.rayDalio_text2 {
+    width: 50%;
+    border-right: 2px solid #0692ca;
+    height: 65px;
+    position: relative;
+}
+.rayDalio_text2_sign {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 0.7em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: -0.13em;
+    vertical-align: top;
+    position: relative;
+    top: 8px;
+    left: -2px;
+}
+
+.rayDalio_text2_number {
+    font-family: 'Oswald',sans-serif;
+    font-size: 2em;
+    color: #ecf0f1;
+    font-weight: 300;
+    letter-spacing: 0.015em;
+    position: absolute;
+    bottom: -6px;
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.capitalLogo {
+    display: block;
+    width: 45%;
+    margin: 1% auto;
+}
+
+.foo_textArea {
+    background-color: rgba(23,26,29,.8);
+    width: 100%;
+    height: 140px;
+    border-top: 2px solid #0692ca;
+    position: absolute;
+    bottom: 0;
+}
+
+
+.foo_textArea_title {
+    font-family: 'open sans';
+    font-weight: 600;
+    font-size: 2.250em;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    color: #ecf0f1;
+}
+
+.foo_textArea_text {
+    font-family: 'open sans';
+    font-weight: 400;
+    font-size: 0.8em;
+    margin: 3px auto;
+    text-align: center;
+    width: 70%;
+    color: #ecf0f1;
+}
+
+
+.photoText_photo_border {
+    position: relative;
+    height: 100%;
+}
+
+    .photoText_photo_border canvas {
+        position: absolute;
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+    }
+
+.photoText_photo_image {
+    width: 95px;
+    height: 95px;
+    border: 2px solid #eff4f9;
+    position: absolute;
+    border-radius: 100%;
+    background-image: url('../images/personplaceholder.png');
+    background-size: cover;
+    background-position: 0 -1px;
+    margin: 0 auto;
+    display: inline-block;
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+/*FOOTER end*/
