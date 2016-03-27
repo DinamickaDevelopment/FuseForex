@@ -204,8 +204,9 @@ nav svg {
     background-image: url('../images/chipsiki/chips_stack.png');
     width: 887px;
     height: 441px;
-    position: relative;
-    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -443px;
 }
 
 .big_1 {
@@ -1544,7 +1545,7 @@ footer {
 .foo_cards_wrapper {
     width: 100%;
     text-align: center;
-    height: 405px;
+    height: 62%;
 }
 
 .foo_singlecard_container {
