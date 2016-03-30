@@ -2095,7 +2095,6 @@ footer {
     border-radius: 100%;
     background-image: url('../images/personplaceholder.png');
     background-size: cover;
-    background-position: 0 -1px;
     margin: 0 auto;
     display: inline-block;
     -moz-transform: translate(-50%,-50%);
