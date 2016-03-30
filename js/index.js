@@ -4,7 +4,7 @@
 
 
 $(window).ready(function () {
-    var firstanim = true, firstanimSinglecard = true, inProgress = false, oldBlock, currentBlock;
+    var firstanim = true, firstanimSinglecard = true, inProgress = false, isOpen = false, oldBlock, currentBlock;
     //Browser check
     function cBrowser() {
         var ua = navigator.userAgent;
@@ -24,17 +24,27 @@ $(window).ready(function () {
         e = e || window.event;
         if (e.preventDefault)
             e.preventDefault();
+        if (e.deltaY > 0) {
+            scrollLogick('down');
+        } else {
+            scrollLogick('up');
+        }
         e.returnValue = false;
     }
-
     function preventDefaultForScrollKeys(e) {
         if (keys[e.keyCode]) {
             preventDefault(e);
+            if (e.keyCode == 40) {
+                scrollLogick('down');
+            } else {
+                if (e.keyCode == 38) {
+                    scrollLogick('up');
+                }
+            }
             return false;
         }
     }
-
-    function disableScroll(bool) {
+    condisableScroll = function disableScroll(bool) {
         if (bool) {
             //if (window.addEventListener) // older FF
             //    window.addEventListener('DOMMouseScroll', preventDefault, false);
@@ -42,6 +52,7 @@ $(window).ready(function () {
             window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
             window.ontouchmove = preventDefault; // mobile
             document.onkeydown = preventDefaultForScrollKeys;
+            $('body').smoothWheel({ 'remove': true });
         } else {
             //if (window.removeEventListener)
             //    window.removeEventListener('DOMMouseScroll', preventDefault, false);
@@ -49,6 +60,9 @@ $(window).ready(function () {
             window.onwheel = null;
             window.ontouchmove = null;
             document.onkeydown = null;
+            if (cBrowser() !== 'firefox') {
+                $("body").smoothWheel();
+            }
         }
     }
 
@@ -115,17 +129,35 @@ $(window).ready(function () {
     }
 
 
-    $(window).on('scroll', function () {
-
-        if (window.pageYOffset >= Math.round($('#content').offset().top) && firstanim) {
-            disableScroll(true);
-            $('#services').trigger('click');
-        }// seems like problem like recalling contentAnimation function....recheck trigger function!
+    scrollLogick = function (direction) {
+        // seems like problem like recalling contentAnimation function....recheck trigger function!
         //problem found - page animation called on body and html at the same time, insted just body
-        if (window.pageYOffset >= Math.round($('footer').offset().top)) {
-            singleCardAnimation('70%');
+        if (direction == 'down') {
+            if (firstanim) {
+                $('#services').trigger('click');
+                return false;
+            }
+            if ($('#' + currentBlock).next().next().next().attr('id') !== undefined) {
+                $('#' + $('#' + currentBlock).next().next().next().attr('id')).trigger('click');
+            } else {
+                condisableScroll(false);
+            }
         }
-    })
+        if (direction == 'up') {
+            if ($('#' + currentBlock).prev().prev().prev().attr('id') !== undefined) {
+                $('#' + $('#' + currentBlock).prev().prev().prev().attr('id')).trigger('click');
+            } else {
+                return false;
+            }
+        }
+    }
+    singleCardAnimationScroll = function () {
+        if (window.pageYOffset >= Math.round($('footer').offset().top)) {
+            singleCardAnimation();
+        }
+    }
+    window.onscroll = singleCardAnimationScroll;
+
     function menuMouseClick(event) {//make another orientation for active change
         if (!$(this).hasClass('menu_active') && $(this).attr('id') !== currentBlock && !inProgress) {
             inProgress = true;
@@ -159,18 +191,18 @@ $(window).ready(function () {
                 if (window.pageYOffset !== Math.round($('#content').offset().top)) {//if viewport not in content section then scroll to section
                     var ContentTop = Math.round($('#content').offset().top), actor = this;
                     $('body').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
-                        disableScroll(false);
                         contentAnimation(actor, oldBlock);
 
                     });
                 } else {//in other case start content animation
+                    condisableScroll(true);
                     contentAnimation(this, oldBlock);
                 }
             }
         }
 
     }
-   
+
     //entry menu animation
     function recurAnimMenu(MenuElem) {
         var animTime = 400
@@ -197,10 +229,7 @@ $(window).ready(function () {
                                     function () { $(this).css({ 'height': '0px', 'top': '33px' }) })
                                 $('.menu_item').hover(menuMouseIn, menuMouseOut);
                                 $('.menu_item').click(menuMouseClick);
-                                disableScroll(false);
-                                if (cBrowser() !== 'firefox') {
-                                    $("body").smoothWheel();
-                                }
+                                //condisableScroll(false);
                             }
                             recurAnimMenu('#' + $(MenuElem).next().next().next().attr('id'))//dont touch, some kind of magick!
                         })
@@ -210,7 +239,6 @@ $(window).ready(function () {
 
     //Content Animation
     function contentAnimation(target, old) {
-
         if (firstanim) {
             $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, 1000, 'linear',
                 function () {
@@ -220,7 +248,7 @@ $(window).ready(function () {
                     $(this).css({ 'top': '50%', 'height': '0' })
                     $('.cpanel1').animate({ width: '30%' }, 1000, 'linear',
                         function () {
-                            $('.content_cpanel1_' + $(target).attr('id') + ' h2').animate({ opacity: 1 }, 500, 'linear',//Content itself
+                            $('.content_cpanel1_' + $(target).attr('id') + ' h2').animate({opacity:1},500, 'linear',//Content itself
                                 function () {
                                     $('.content_cpanel1_' + $(target).attr('id') + ' p').animate({ opacity: 1 }, 500, 'linear')
                                 });
@@ -231,7 +259,7 @@ $(window).ready(function () {
                                     $('.cpanel2').addClass('cpanel_sefborder_left');
                                     $('.cpanel2').animate({ width: '100%' }, 1000, 'linear',
                                         function () {
-                                            $('.content_cpanel2_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear',//Content itself
+                                            $('.content_cpanel2_' + $(target).attr('id')).fadeToggle(500, 'linear',//Content itself
                                                 function () {
                                                     switch ($(target).attr('id')) {
                                                         case 'services':
@@ -264,7 +292,7 @@ $(window).ready(function () {
                                                     $('.cpanel4').addClass('cpanel_sefborder_top');
                                                     $('.cpanel4').animate({ height: '100%' }, 1000, 'linear',
                                                         function () {
-                                                            $('.content_cpanel4_' + $(target).attr('id') + ',.cpanel4_hiddenPanel_findOut').animate({ opacity: 1 }, 500, 'linear')
+                                                            $('.content_cpanel4_' + $(target).attr('id') + ',.cpanel4_hiddenPanel_findOut').fadeToggle(500, 'linear')
                                                             $('.content_cpanel3_border').css({ 'right': -Math.round($('.content_panel_wraper').width() * 0.04), 'opacity': '1' })
                                                             $('.content_cpanel3_border').animate({ right: '-1px' }, 600, 'linear',
                                                                 function () {
@@ -272,7 +300,7 @@ $(window).ready(function () {
                                                                     $('.cpanel3').addClass('cpanel_sefborder_right');
                                                                     $('.cpanel3').animate({ width: '34%', left: '0' }, 1000, 'linear',
                                                                         function () {
-                                                                            $('.content_cpanel3_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear',
+                                                                            $('.content_cpanel3_' + $(target).attr('id')).fadeToggle( 500, 'linear',
                                                                                 function () {
                                                                                     switch ($(target).attr('id')) {//start animation on apear 4th block
                                                                                         case 'services':
@@ -315,6 +343,7 @@ $(window).ready(function () {
                                                                                             alert('Unexpected error');
                                                                                     }
                                                                                 })
+                                                                            //condisableScroll(true);
                                                                             inProgress = false; firstanim = false;
                                                                         })
 
@@ -327,7 +356,7 @@ $(window).ready(function () {
                         })
                 })
         } else {//old = services,funding,investing
-            $('.content_cpanel1_' + old + ' h2, .content_cpanel1_' + old + ' p').animate({ opacity: 0 }, 500, 'linear',
+            $('.content_cpanel1_' + old + ' h2, .content_cpanel1_' + old + ' p').animate({opacity:0},500, 'linear',
                 function () {
                     switch (old) {//remove old content animation
                         case 'services':
@@ -407,31 +436,33 @@ $(window).ready(function () {
                         default:
                             alert('Unexpected error');
                     }
-                    $('.content_cpanel1_' + $(target).attr('id') + ' h2,.content_cpanel1_' + $(target).attr('id') + ' p').animate({ opacity: 1 }, 500, 'linear')
+                    $('.content_cpanel1_' + $(target).attr('id') + ' h2,.content_cpanel1_' + $(target).attr('id') + ' p').animate({opacity:1},500, 'linear')
                 })
-            $('.content_cpanel2_' + old).animate({ opacity: 0 }, 500, 'linear',
+
+            $('.content_cpanel2_' + old).fadeOut(500, 'linear',
                 function () {
-                    $('.content_cpanel2_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear')
+                    $('.content_cpanel2_' + $(target).attr('id')).fadeIn(500, 'linear')
                 })
-            $('.content_cpanel3_' + old).animate({ opacity: 0 }, 500, 'linear',
+            $('.content_cpanel3_' + old).fadeOut(500, 'linear',
                 function () {
-                    $('.content_cpanel3_' + $(target).attr('id')).animate({ opacity: 1 }, 500, 'linear')
+                    $('.content_cpanel3_' + $(target).attr('id')).fadeIn(500, 'linear')
                 })
 
             //need logick for open findout
-            $('.content_cpanel4_' + old + ',.cpanel4_hiddenPanel_findOut').animate({ opacity: 0 }, 500, 'linear',
+            $('.content_cpanel4_' + old + ',.cpanel4_hiddenPanel_findOut').fadeOut(500, 'linear',
                 function () {
-                    $('.content_cpanel4_' + $(target).attr('id') + ',.cpanel4_hiddenPanel_findOut').animate({ opacity: 1 }, 500, 'linear')
+                    $('.content_cpanel4_' + $(target).attr('id') + ',.cpanel4_hiddenPanel_findOut').fadeIn(500, 'linear')
                 })
 
-            $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').addClass($(target).attr('id') + 'Color')
+            $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border,.content_cpanel5_border').addClass($(target).attr('id') + 'Color')
             var speedBorder = 1000
             $('.br' + $(target).attr('id')).animate({ height: '100%', top: 0 }, speedBorder - 1, 'linear',
                 function () {
                     $('#content').removeClass();
                     $('#content').addClass($(target).attr('id') + 'Color');
                     $(this).css({ 'top': '50%', 'height': '0' });
-                    $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border').removeClass($(target).attr('id') + 'Color')
+                    $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border,.content_cpanel5_border').removeClass($(target).attr('id') + 'Color')
+                    //condisableScroll(false);
                     inProgress = false;
                 })
 
@@ -449,10 +480,15 @@ $(window).ready(function () {
                 function () {
                     $(this).css({ 'height': '0' });
                 })
+
+            $('.content_cpanel5_border').animate({ width: '100%' }, speedBorder, 'linear',
+                function () {
+                    $(this).css({ 'width': '0' });
+                })
         }
 
     }
-    function singleCardAnimation(a) {
+    function singleCardAnimation() {
         if (firstanimSinglecard) {
             firstanimSinglecard = false;
             $('.photoText_photo_border').circleProgress({
@@ -471,7 +507,46 @@ $(window).ready(function () {
             $('.rayDalio_text2_counter').countTo({ from: 0, to: 8531, speed: 30000, refreshInterval: 20 })
         }
     }
+    $('#cpanel4_hiddenPanel_findOut_target').click(function () {
+        if (!isOpen) {
+            isOpen = true;
+            $('.content_cpanel4_hiddenPanel').fadeToggle('linear',
+                function () {
+                    $('.cpanel4').animate({ height: '60%' }, 700, 'linear',
+                        function () {
+                            $('.content_cpanel5_border').css({ 'top': -Math.round($('.content_panel_row').width() * 0.04), 'opacity': '1' });
+                            $('.content_cpanel5_border').animate({ top: '-1px' }, 400, 'linear',
+                                function () {
+                                    $('.cpanel5').addClass('cpanel_sefborder_top');
+                                    $('.content_cpanel5_border').css({ 'width': '0' });
+                                    $('.cpanel5').animate({ height: '30%' }, 700, 'linear',
+                                        function () {
+                                            $('.content_cpanel5_wrapper ').fadeToggle('linear');
+                                        })
+                                })
+                        })
+                });
+        }
+    })
+    $('.cpanel5_closeIco').click(function () {
+        if (isOpen) {
+            $('.content_cpanel5_wrapper').fadeToggle('linear',
+                function () {
+                    $('.cpanel5').animate({ height: '0%' }, 700, 'linear',
+                        function () {
+                            $('.cpanel5').removeClass('cpanel_sefborder_top');
+                            $('.cpanel4').animate({ height: '100%' }, 700, 'linear', function () {
+                                $('.content_cpanel4_hiddenPanel').fadeToggle('linear');
+                                $('.content_cpanel5_border').css({ 'width': '100%','opacity':'0' });
+
+                                isOpen = false;
+                            });
+
+                        });
+                });
+        }
+    })
 
     a = setTimeout(recurAnimMenu, 4000, '#home');
-    disableScroll(true);
+    condisableScroll(true);
 });

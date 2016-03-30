@@ -8,19 +8,18 @@
  */
 (function ($) {
 
-    var self = this, container, running=false, currentY = 0, targetY = 0, oldY = 0, maxScrollTop= 0, minScrollTop, direction, onRenderCallback=null,
+    var self = this, container, running=false,used=false, currentY = 0, targetY = 0, oldY = 0, maxScrollTop= 0, minScrollTop, direction, onRenderCallback=null,
             fricton = 0.7, // higher value for slower deceleration
             vy = 0,
             stepAmt = 3,
             minMovement= 0.4,
-            ts=0.1;
+            ts=0.05;
 
     var updateScrollTarget = function (amt) {
         targetY += amt;
         vy += (targetY - oldY) * stepAmt;
       
         oldY = targetY;
-
 
     }
     var render = function () {
@@ -117,22 +116,26 @@
         var options = jQuery.extend({}, arguments[0]);
         return this.each(function (index, elm) {
 
-            if(!('ontouchstart' in window)){
+            if (!('ontouchstart' in window)) {
+                if (!used) {
                 container = $(this);
                 container.bind("mousewheel", onWheel);
                 container.bind("DOMMouseScroll", onWheel);
+                used = true;
 
                 //set target/old/current Y to match current scroll position to prevent jump to top of container
                 targetY = oldY = container.get(0).scrollTop;
                 currentY = -targetY;
                 
                 minScrollTop = container.get(0).clientHeight - container.get(0).scrollHeight;
+                }
                 if(options.onRender){
                     onRenderCallback = options.onRender;
                 }
                 if(options.remove){
                     //log("122","smoothWheel","remove", "");//Unknown bug
-                    running=false;
+                    running = false;
+                    used = false;
                     container.unbind("mousewheel", onWheel);
                     container.unbind("DOMMouseScroll", onWheel);
                 }else if(!running){

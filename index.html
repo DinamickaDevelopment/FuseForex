@@ -217,14 +217,20 @@
                             </div>
                         </div>
                         <div class="content_cpanel4_hiddenPanel">
-                            <div class="cpanel4_hiddenPanel_findOut"><span id="FindMore" style="cursor:pointer">FIND OUT MORE <span style="font-weight:bold">></span></span></div>
-                            <div class="cpanel4_hiddenPanel_formWraper"></div>
+                            <div class="cpanel4_hiddenPanel_findOut"><span id="cpanel4_hiddenPanel_findOut_target" style="cursor:pointer">FIND OUT MORE <span style="font-weight:bold">></span></span></div>
                         </div>
                     </div>
                     <div class="content_panel cpanel5">
                         <div class="content_cpanel5_border"></div>
-                        <div class="cpanel5_closeIco">&#88;</div>
-                        <div class="cpanel5_formWraper"></div>
+                        <div class="content_cpanel5_wrapper">
+                            <div class="cpanel5_closeIco">&#10006;</div>
+                            <div class="cpanel5_formWraper">
+                                <form id="subscribeForm">
+                                    <input type="text" placeholder="Enter your email" class="textInput" />
+                                    <input type="button" placeholder="Enter your email" class="btnInput" value="SIGN UP" />
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -418,6 +424,7 @@
     <script type="text/javascript" charset="utf-8" src="edge_includes/edge.6.0.0.min.js"></script>
     <script src="js/skrollr.js"></script>
     <script src="js/jquery.smoothwheel.js"></script>
+    <script src="js/howManyScroll.js"></script>
     <script src="js/jquery.countTo.js"></script>
     <script src="js/circle-progress.js"></script>
     <script type="text/javascript">

@@ -498,9 +498,10 @@ nav svg {
 .cpanel5 {
     float: right;
     width: 62%;
-    height: 0; /*43%*/
-    overflow: hidden;
+    height: 0; /*30%*/
     position: relative;
+    margin-top: 4%;
+    border-color: inherit;
 }
 
 .content_cpanel5_border {
@@ -508,8 +509,16 @@ nav svg {
     border-color: inherit;
     width: 100%;
     opacity: 0;
-    top: -1px;
+    top: -32%;
     position: absolute;
+}
+
+.content_cpanel5_wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: none;
 }
 /*Border and content panel appear animation end*/
 .content_cpanel1 {
@@ -536,7 +545,7 @@ nav svg {
     .content_cpanel1 h2 {
         font-weight: 700;
         font-size: 2.571em;
-        opacity: 0;
+        opacity:0
     }
 
     .content_cpanel1 p {
@@ -544,7 +553,7 @@ nav svg {
         font-size: 1.143em;
         width: 75%;
         margin: 0 auto;
-        opacity: 0;
+        opacity:0
     }
 /*Cpanel2 classes*/
 .content_cpanel2 {
@@ -562,7 +571,7 @@ nav svg {
         -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
         top: 50%;
-        opacity: 0;
+        display: none;
         overflow: hidden;
     }
 
@@ -956,7 +965,7 @@ nav svg {
     position: absolute;
     height: 100%;
     width: 100%;
-    opacity: 0;
+    display: none;
 }
 
 .cpanel3_any_wraper {
@@ -1014,7 +1023,7 @@ nav svg {
 .content_cpanel4_services, .content_cpanel4_investing, .content_cpanel4_funding {
     position: absolute;
     width: 100%;
-    opacity: 0;
+    display: none;
 }
 
 .cpanel4_any_title {
@@ -1073,7 +1082,7 @@ nav svg {
     letter-spacing: 0.075em;
     font-weight: 300;
     padding: 6% 0;
-    opacity: 0;
+    display: none;
 }
 
 .coin {
@@ -1610,7 +1619,7 @@ footer {
 
 .photoText_Text_quote {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 0.750em;
+    font-size: 0.8em;
     letter-spacing: 0.020em;
     color: #ecf0f1;
     text-align: right;
@@ -1712,6 +1721,7 @@ footer {
     font-weight: 600;
     letter-spacing: 0.028em;
 }
+
 .steveConeh_text2 {
     display: inline-block;
     width: 40%;
@@ -1878,9 +1888,11 @@ footer {
 .larryRobbins_text2_means, .larryRobbins_text2_wasmade {
     width: 30%;
 }
- .larryRobbins_text2_profit{
-     width:40%
- }
+
+.larryRobbins_text2_profit {
+    width: 40%;
+}
+
 .larryRobbins_text2_means {
     font-family: Oswald,sans-serif;
     font-weight: 400;
@@ -1994,6 +2006,7 @@ footer {
     height: 65px;
     position: relative;
 }
+
 .rayDalio_text2_sign {
     font-family: 'Open Sans',sans-serif;
     font-size: 0.7em;
@@ -2093,4 +2106,57 @@ footer {
     top: 50%;
     left: 50%;
 }
+
+.cpanel5_closeIco {
+    color: #ecf0f1;
+    cursor: pointer;
+    display: inline-block;
+    right: 1%;
+    position: absolute;
+    font-size: 0.8em;
+    width: 3%;
+    text-align: center;
+}
+
+.cpanel5_formWraper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#subscribeForm {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+input.textInput {
+    width: 65%;
+    margin-right: 5%;
+    border: 1px solid white;
+    background-color: transparent;
+    height: 30px;
+    text-align: center;
+    font-family: 'open snas',sans-serif;
+    color: white;
+    letter-spacing: 0.125em;
+}
+
+input.btnInput {
+    width: 28%;
+    height: 30px;
+    border: none;
+    background-color: #0692ca;
+    vertical-align: middle;
+    font-family: 'open sans',semibold;
+    font-size: 0.875em;
+    letter-spacing: 0.075em;
+    font-weight: 400;
+    color: #ecf0f1;
+}
+
+    input.btnInput:hover {
+        box-shadow: inset 0 0 4px white;
+    }
 /*FOOTER end*/
