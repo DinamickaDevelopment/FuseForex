@@ -24,7 +24,7 @@ $(window).ready(function () {
         e = e || window.event;
         if (e.preventDefault)
             e.preventDefault();
-        if (e.deltaY > 0) {
+        if (e.deltaY > 0) {//добавить layerY in firefox
             scrollLogick('down');
         } else {
             scrollLogick('up');
@@ -52,7 +52,9 @@ $(window).ready(function () {
             window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
             window.ontouchmove = preventDefault; // mobile
             document.onkeydown = preventDefaultForScrollKeys;
-            $('body').smoothWheel({ 'remove': true });
+            if (cBrowser() !== 'firefox') {
+                $('body').smoothWheel({ 'remove': true });
+            }
         } else {
             //if (window.removeEventListener)
             //    window.removeEventListener('DOMMouseScroll', preventDefault, false);
@@ -188,11 +190,11 @@ $(window).ready(function () {
             if ($(this).attr('id') == 'home') {//if pressed HOME we scroll to top of page
                 $('body,html').animate({ scrollTop: 0 }, 1500, 'linear', function () { inProgress = false; });
             } else {//in other case we check viewport positiin
-                if (window.pageYOffset !== Math.round($('#content').offset().top)) {//if viewport not in content section then scroll to section
+                temp2 = $('#content').offset().top;
+                if (window.pageYOffset != Math.round(temp2)) {//if viewport not in content section then scroll to section
                     var ContentTop = Math.round($('#content').offset().top), actor = this;
-                    $('body').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
+                    $('html').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
                         contentAnimation(actor, oldBlock);
-
                     });
                 } else {//in other case start content animation
                     condisableScroll(true);
@@ -350,7 +352,6 @@ $(window).ready(function () {
                                                                 })
                                                         })
                                                 })
-
                                         })
                                 })
                         })
@@ -412,7 +413,6 @@ $(window).ready(function () {
                                 animation: { duration: 5000, easing: "linear" },
                                 fill: { image: "../images/dev_ass/Gauges/ticker_green.png" }
                             });
-
                             $('#cpanel2_funding_numeric_coun').countTo({ from: 0, to: 80, speed: 5000 });
                             $('.banknotes').addClass('banknotesMove');
                             $('.money_trader_full').addClass('animationMoney');
@@ -496,7 +496,7 @@ $(window).ready(function () {
                 value: 1,
                 thickness: 10,
                 emptyFill: 'rgba(0,0,0,0)',
-                size: 110,
+                size: 105,
                 animation: { duration: 30000, easing: "linear" },
                 fill: { color: '#0692ca' }
             })
@@ -517,6 +517,10 @@ $(window).ready(function () {
                             $('.content_cpanel5_border').css({ 'top': -Math.round($('.content_panel_row').width() * 0.04), 'opacity': '1' });
                             $('.content_cpanel5_border').animate({ top: '-1px' }, 400, 'linear',
                                 function () {
+                                    $('.content_cpanel2_' + currentBlock).fadeOut(350, 'linear',
+                                        function () {
+                                            $('.content_cpanel2_video').fadeIn(350, 'linear')
+                                        })
                                     $('.cpanel5').addClass('cpanel_sefborder_top');
                                     $('.content_cpanel5_border').css({ 'width': '0' });
                                     $('.cpanel5').animate({ height: '30%' }, 700, 'linear',
@@ -534,6 +538,10 @@ $(window).ready(function () {
                 function () {
                     $('.cpanel5').animate({ height: '0%' }, 700, 'linear',
                         function () {
+                            $('.content_cpanel2_video').fadeOut(350, 'linear',
+                                function () {
+                                    $('.content_cpanel2_' + currentBlock).fadeIn(350, 'linear')
+                                })
                             $('.cpanel5').removeClass('cpanel_sefborder_top');
                             $('.cpanel4').animate({ height: '100%' }, 700, 'linear', function () {
                                 $('.content_cpanel4_hiddenPanel').fadeToggle('linear');

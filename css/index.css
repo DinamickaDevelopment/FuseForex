@@ -545,7 +545,7 @@ nav svg {
     .content_cpanel1 h2 {
         font-weight: 700;
         font-size: 2.571em;
-        opacity:0
+        opacity: 0;
     }
 
     .content_cpanel1 p {
@@ -553,7 +553,7 @@ nav svg {
         font-size: 1.143em;
         width: 75%;
         margin: 0 auto;
-        opacity:0
+        opacity: 0;
     }
 /*Cpanel2 classes*/
 .content_cpanel2 {
@@ -636,6 +636,36 @@ nav svg {
     position: relative;
 }
 
+.content_cpanel2_video {
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    display: none;
+    overflow: hidden;
+}
+
+.cpanel2_video_placeholder {
+    color: white;
+    font-size: 7em;
+    -moz-transform: rotateZ(90deg);
+    -ms-transform: rotateZ(90deg);
+    -o-transform: rotateZ(90deg);
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+    width: 15%;
+    margin: 0 auto;
+    position: relative;
+    top: 25%;
+}
+.play_ico{
+    cursor:pointer;
+}
 .speedometers_losers {
     background-image: url('../images/dev_ass/Gauges/gauge_red.png');
 }
@@ -2088,15 +2118,13 @@ footer {
     }
 
 .photoText_photo_image {
-    width: 95px;
-    height: 95px;
-    border: 2px solid #eff4f9;
+    width: 90px;
+    height: 90px;
     position: absolute;
-    border-radius: 100%;
-    background-image: url('../images/personplaceholder.png');
-    background-size: cover;
     margin: 0 auto;
     display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 50%;
     -moz-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     -o-transform: translate(-50%,-50%);
@@ -2105,6 +2133,23 @@ footer {
     top: 50%;
     left: 50%;
 }
+
+.person1 {
+    background-image: url('../images/person1.png');
+}
+
+.person2 {
+    background-image: url('../images/person2.png');
+}
+
+.person3 {
+    background-image: url('../images/person3.png');
+}
+
+.person4 {
+    background-image: url('../images/person4.png');
+}
+
 
 .cpanel5_closeIco {
     color: #ecf0f1;
