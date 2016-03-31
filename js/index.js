@@ -193,9 +193,8 @@ $(window).ready(function () {
                 temp2 = $('#content').offset().top;
                 if (window.pageYOffset != Math.round(temp2)) {//if viewport not in content section then scroll to section
                     var ContentTop = Math.round($('#content').offset().top), actor = this;
-                    $('html').animate({ scrollTop: ContentTop }, 1500, 'linear', function () {
-                        contentAnimation(actor, oldBlock);
-                    });
+                    $('body,html').animate({ scrollTop: ContentTop }, 1500, 'linear', function () { });
+                    var Delay = setTimeout(contentAnimation(actor, oldBlock), 1500);
                 } else {//in other case start content animation
                     condisableScroll(true);
                     contentAnimation(this, oldBlock);
