@@ -393,7 +393,7 @@ $(window).ready(function () {
                                 emptyFill: 'rgba(0,0,0,0)',
                                 size: 202,
                                 animation: { duration: 5000, easing: "linear" },
-                                fill: { image: "../images/dev_ass/Gauges/ticker_orange.png" }
+                                fill: { image: "js/ticker_orange.png" }
                             });
                             $('#services_text_number').countTo({ from: 0, to: 90, speed: 5000 })
                             $('#cpanel2_services_numeric_coun').countTo({ from: 0, to: 45, speed: 5000 });
@@ -410,7 +410,7 @@ $(window).ready(function () {
                                 emptyFill: 'rgba(0,0,0,0)',
                                 size: 202,
                                 animation: { duration: 5000, easing: "linear" },
-                                fill: { image: "../images/dev_ass/Gauges/ticker_green.png" }
+                                fill: { image: "js/ticker_green.png" }
                             });
                             $('#cpanel2_funding_numeric_coun').countTo({ from: 0, to: 80, speed: 5000 });
                             $('.banknotes').addClass('banknotesMove');
@@ -425,7 +425,7 @@ $(window).ready(function () {
                                 emptyFill: 'rgba(0,0,0,0)',
                                 size: 202,
                                 animation: { duration: 5000, easing: "linear" },
-                                fill: { image: "../images/dev_ass/Gauges/ticker_yellow.png" }
+                                fill: { image: "js/ticker_yellow.png" }
                             });
                             $('#cpanel2_investing_numeric_coun').countTo({ from: 0, to: 100, speed: 5000 })
                             $('.graphics_moneybox').addClass('coinFals');
