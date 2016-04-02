@@ -890,17 +890,23 @@ nav svg {
 
 .grafick_axis {
     background-image: url('../images/dev_ass/Investing/axis.png');
-    height: 100%;
-    width: 70%;
+    height: 166px;
+    width: 275px;
     background-repeat: no-repeat;
     background-size: contain;
-    margin: 2% auto;
+    margin: 0 auto;
     position: relative;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .graphics_moneybox, .graphics_grafick {
     width: 100%;
-    height: 80%;
+    height: 85%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50% 0;
@@ -963,10 +969,10 @@ nav svg {
 
 .graphics_grafick svg {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top:-3px;
-    left:3px;
+    width: 250px;
+    height: 150px;
+    bottom:4px;
+    left:4px;
 }
 
 #line {
