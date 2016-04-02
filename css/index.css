@@ -891,10 +891,10 @@ nav svg {
 .grafick_axis {
     background-image: url('../images/dev_ass/Investing/axis.png');
     height: 100%;
-    width: 68%;
+    width: 70%;
     background-repeat: no-repeat;
     background-size: contain;
-    margin: 0 auto;
+    margin: 2% auto;
     position: relative;
 }
 
@@ -965,6 +965,8 @@ nav svg {
     position: absolute;
     width: 100%;
     height: 100%;
+    top:-3px;
+    left:3px;
 }
 
 #line {
