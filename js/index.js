@@ -313,7 +313,7 @@ $(window).ready(function () {
                                                                                                 emptyFill: 'rgba(0,0,0,0)',
                                                                                                 size: 202,
                                                                                                 animation: { duration: 5000, easing: "linear" },
-                                                                                                fill: { image: "ticker_orange.png" }
+                                                                                                fill: { image: "js/ticker_orange.png" }
                                                                                             });
                                                                                             break;
                                                                                         case 'funding':
@@ -325,7 +325,7 @@ $(window).ready(function () {
                                                                                                 emptyFill: 'rgba(0,0,0,0)',
                                                                                                 size: 202,
                                                                                                 animation: { duration: 5000, easing: "linear" },
-                                                                                                fill: { image: "http://dinamickadevelopment.github.io/FuseForex/js/ticker_green.png" }
+                                                                                                fill: { image: "js/ticker_green.png" }
                                                                                             });
                                                                                             break;
                                                                                         case 'investing':
@@ -337,7 +337,7 @@ $(window).ready(function () {
                                                                                                 emptyFill: 'rgba(0,0,0,0)',
                                                                                                 size: 202,
                                                                                                 animation: { duration: 5000, easing: "linear" },
-                                                                                                fill: { image: "ticker_yellow.png" }
+                                                                                                fill: { image: "js/ticker_yellow.png" }
                                                                                             });
                                                                                             break;
                                                                                         default:
