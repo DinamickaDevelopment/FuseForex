@@ -663,9 +663,11 @@ nav svg {
     position: relative;
     top: 25%;
 }
-.play_ico{
-    cursor:pointer;
+
+.play_ico {
+    cursor: pointer;
 }
+
 .speedometers_losers {
     background-image: url('../images/dev_ass/Gauges/gauge_red.png');
 }
@@ -708,10 +710,10 @@ nav svg {
 
 .speedDot {
     position: absolute;
-    width: 4%;
+    width: 15px;
+    height: 15px;
     left: 48%;
     bottom: -4%;
-    height: 10%;
     border-radius: 100%;
     clip: rect(0px,15px,9px,0px);
 }
@@ -883,8 +885,14 @@ nav svg {
     float: right;
 }
 
-.graphics_grafick {
-    background-image: url('../images/dev_ass/Investing/axis.png');
+.grafick_axis {
+        background-image: url('../images/dev_ass/Investing/axis.png');
+    height: 100%;
+    width: 68%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+    position: relative;
 }
 
 .graphics_moneybox, .graphics_grafick {
@@ -936,7 +944,7 @@ nav svg {
     }
 
     to {
-        top: 36%;
+        top: 40%;
     }
 }
 
@@ -946,15 +954,14 @@ nav svg {
     }
 
     to {
-        top: 25%;
+        top: 40%;
     }
 }
 
 .graphics_grafick svg {
     position: absolute;
-    width: 60%;
-    top: 10%;
-    left: 17%;
+    width: 100%;
+    height: 100%;
 }
 
 #line {
@@ -2160,6 +2167,7 @@ footer {
     font-size: 0.8em;
     width: 3%;
     text-align: center;
+    top: 3%;
 }
 
 .cpanel5_formWraper {

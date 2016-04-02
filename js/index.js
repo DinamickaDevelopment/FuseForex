@@ -4,7 +4,7 @@
 
 
 $(window).ready(function () {
-    var firstanim = true, firstanimSinglecard = true, inProgress = false, isOpen = false, oldBlock, currentBlock;
+    var firstanim = true, firstanimSinglecard = true, inProgress = false, isOpen = false, oldBlock, currentBlock,videoOpen = false;
     //Browser check
     function cBrowser() {
         var ua = navigator.userAgent;
@@ -313,7 +313,7 @@ $(window).ready(function () {
                                                                                                 emptyFill: 'rgba(0,0,0,0)',
                                                                                                 size: 202,
                                                                                                 animation: { duration: 5000, easing: "linear" },
-                                                                                                fill: { image: "images/dev_ass/Gauges/ticker_orange.png" }
+                                                                                                fill: { image: "ticker_orange.png" }
                                                                                             });
                                                                                             break;
                                                                                         case 'funding':
@@ -325,7 +325,7 @@ $(window).ready(function () {
                                                                                                 emptyFill: 'rgba(0,0,0,0)',
                                                                                                 size: 202,
                                                                                                 animation: { duration: 5000, easing: "linear" },
-                                                                                                fill: { image: "images/dev_ass/Gauges/ticker_green.png" }
+                                                                                                fill: { image: "ticker_green.png" }
                                                                                             });
                                                                                             break;
                                                                                         case 'investing':
@@ -337,7 +337,7 @@ $(window).ready(function () {
                                                                                                 emptyFill: 'rgba(0,0,0,0)',
                                                                                                 size: 202,
                                                                                                 animation: { duration: 5000, easing: "linear" },
-                                                                                                fill: { image: "images/dev_ass/Gauges/ticker_yellow.png" }
+                                                                                                fill: { image: "ticker_yellow.png" }
                                                                                             });
                                                                                             break;
                                                                                         default:
@@ -438,10 +438,13 @@ $(window).ready(function () {
                     $('.content_cpanel1_' + $(target).attr('id') + ' h2,.content_cpanel1_' + $(target).attr('id') + ' p').animate({opacity:1},500, 'linear')
                 })
 
+            if (!videoOpen) {
             $('.content_cpanel2_' + old).fadeOut(500, 'linear',
                 function () {
                     $('.content_cpanel2_' + $(target).attr('id')).fadeIn(500, 'linear')
                 })
+            }
+
             $('.content_cpanel3_' + old).fadeOut(500, 'linear',
                 function () {
                     $('.content_cpanel3_' + $(target).attr('id')).fadeIn(500, 'linear')
@@ -518,6 +521,7 @@ $(window).ready(function () {
                                 function () {
                                     $('.content_cpanel2_' + currentBlock).fadeOut(350, 'linear',
                                         function () {
+                                            videoOpen = true;
                                             $('.content_cpanel2_video').fadeIn(350, 'linear')
                                         })
                                     $('.cpanel5').addClass('cpanel_sefborder_top');
@@ -539,6 +543,7 @@ $(window).ready(function () {
                         function () {
                             $('.content_cpanel2_video').fadeOut(350, 'linear',
                                 function () {
+                                    videoOpen = false;
                                     $('.content_cpanel2_' + currentBlock).fadeIn(350, 'linear')
                                 })
                             $('.cpanel5').removeClass('cpanel_sefborder_top');
