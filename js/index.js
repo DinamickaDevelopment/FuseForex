@@ -4,7 +4,7 @@
 
 
 $(window).ready(function () {
-    var firstanim = true, firstanimSinglecard = true, inProgress = false, isOpen = false, oldBlock, currentBlock,videoOpen = false;
+    var firstanim = true, firstanimSinglecard = true, inProgress = false, isOpen = false,OnFooter=false, oldBlock, currentBlock,videoOpen = false;
     //Browser check
     function cBrowser() {
         var ua = navigator.userAgent;
@@ -49,7 +49,6 @@ $(window).ready(function () {
             //if (window.addEventListener) // older FF
             //    window.addEventListener('DOMMouseScroll', preventDefault, false);
             window.onwheel = preventDefault; // modern standard
-            window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
             window.ontouchmove = preventDefault; // mobile
             document.onkeydown = preventDefaultForScrollKeys;
             if (cBrowser() !== 'firefox') {
@@ -58,7 +57,6 @@ $(window).ready(function () {
         } else {
             //if (window.removeEventListener)
             //    window.removeEventListener('DOMMouseScroll', preventDefault, false);
-            window.onmousewheel = document.onmousewheel = null;
             window.onwheel = null;
             window.ontouchmove = null;
             document.onkeydown = null;
@@ -139,17 +137,25 @@ $(window).ready(function () {
                 $('#services').trigger('click');
                 return false;
             }
-            if ($('#' + currentBlock).next().next().next().attr('id') !== undefined) {
+            if ($('#' + currentBlock).next().next().next().attr('id') != undefined && !OnFooter) {
                 $('#' + $('#' + currentBlock).next().next().next().attr('id')).trigger('click');
             } else {
-                condisableScroll(false);
+                if (!inProgress && !OnFooter) {
+                    OnFooter = true;
+                    var FooterTop = Math.round($('footer').offset().top);
+                    $('body,html').animate({ scrollTop: FooterTop }, 1500, 'linear');
+                }
             }
         }
         if (direction == 'up') {
-            if ($('#' + currentBlock).prev().prev().prev().attr('id') !== undefined) {
+            if ($('#' + currentBlock).prev().prev().prev().attr('id') != undefined && !OnFooter) {
                 $('#' + $('#' + currentBlock).prev().prev().prev().attr('id')).trigger('click');
             } else {
-                return false;
+                if (OnFooter && !inProgress) {
+                    OnFooter = false;
+                    var ContentTop = Math.round($('#content').offset().top);
+                    $('body,html').animate({ scrollTop: ContentTop }, 1500, 'linear');
+                }
             }
         }
     }
@@ -193,7 +199,7 @@ $(window).ready(function () {
                 temp2 = $('#content').offset().top;
                 if (window.pageYOffset != Math.round(temp2)) {//if viewport not in content section then scroll to section
                     var ContentTop = Math.round($('#content').offset().top), actor = this;
-                    $('body,html').animate({ scrollTop: ContentTop }, 1500, 'linear', function () { });
+                    $('body,html').animate({ scrollTop: ContentTop }, 1500, 'linear');
                     var Delay = setTimeout(contentAnimation(actor, oldBlock), 1500);
                 } else {//in other case start content animation
                     condisableScroll(true);
@@ -343,9 +349,12 @@ $(window).ready(function () {
                                                                                         default:
                                                                                             alert('Unexpected error');
                                                                                     }
+
+                                                                                    var triggerDelay = setTimeout(function () { inProgress = false; firstanim = false;}, 5000)
+                                                                                    
                                                                                 })
                                                                             //condisableScroll(true);
-                                                                            inProgress = false; firstanim = false;
+                                                                            
                                                                         })
 
                                                                 })
@@ -464,8 +473,8 @@ $(window).ready(function () {
                     $('#content').addClass($(target).attr('id') + 'Color');
                     $(this).css({ 'top': '50%', 'height': '0' });
                     $('.content_cpanel2_border,.br' + $(target).attr('id') + ',.content_cpanel4_border,.content_cpanel3_border,.content_cpanel5_border').removeClass($(target).attr('id') + 'Color')
-                    //condisableScroll(false);
-                    inProgress = false;
+                    
+                   var triggerDelay = setTimeout(function () { inProgress = false; firstanim = false;}, 4800);
                 })
 
             $('.content_cpanel2_border').animate({ height: '100%' }, speedBorder, 'linear',
@@ -559,6 +568,9 @@ $(window).ready(function () {
         }
     })
 
-    a = setTimeout(recurAnimMenu, 4000, '#home');
+    a = setTimeout(function () {
+        recurAnimMenu('#home');
+        $('.wordpress_container').animate({left:'0px'},500,'linear')
+    }, 4000);
     condisableScroll(true);
 });

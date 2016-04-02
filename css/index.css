@@ -886,7 +886,7 @@ nav svg {
 }
 
 .grafick_axis {
-        background-image: url('../images/dev_ass/Investing/axis.png');
+    background-image: url('../images/dev_ass/Investing/axis.png');
     height: 100%;
     width: 68%;
     background-repeat: no-repeat;
@@ -2210,5 +2210,43 @@ input.btnInput {
 
     input.btnInput:hover {
         box-shadow: inset 0 0 4px white;
+    }
+
+.wordpress_container_wrapper {
+    width: 65px;
+    height: 65px;
+    overflow: hidden;
+    position: fixed;
+    top: 5%;
+    right: 0;
+    z-index: 100;
+}
+
+.wordpress_container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(23,26,29,.8);
+    position:relative;
+    left:65px;
+}
+
+.wordpress_svg {
+    width: 70%;
+    position: relative;
+    margin: 0 auto;
+    top: 8px;
+    cursor: pointer;
+}
+
+    .wordpress_svg svg path {
+        fill: #676a6c;
+        -moz-transition: fill 0.2s linear;
+        -o-transition: fill 0.2s linear;
+        -webkit-transition: fill 0.2s linear;
+        transition: fill 0.2s linear;
+    }
+
+    .wordpress_svg:hover svg path {
+        fill: #ecf0f1;
     }
 /*FOOTER end*/
