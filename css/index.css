@@ -26,7 +26,7 @@
     min-width: 0;
     background-color: rgb(0, 92, 77);
     background-size: 100%;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-image: url('../images/pokerthrowcards.jpg');
     z-index: 20;
 }
@@ -738,20 +738,25 @@ nav svg {
     -o-transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 16%;
     background-color: transparent !important;
     font-family: Open Sans;
     font-weight: bold;
     font-style: italic;
     font-size: 21px;
     letter-spacing: -0.52px;
+    width: 10%;
+    text-align: center;
+    top: 18%;
 }
 
 .money_bank {
     background-image: url('../images/dev_ass/Funding/money_machine.png');
     background-position: 100% 0;
 }
-.money_trader{position:relative;}
+
+.money_trader {
+    position: relative;
+}
 
 .money_trader_full {
     width: 60%;
@@ -774,12 +779,14 @@ nav svg {
     width: 60%;
     height: 100%;
 }
+
     .money_trader_unfull img {
         display: block;
         width: 100%;
         height: 100%;
         position: absolute;
     }
+
 .animationMoney {
     -moz-animation: test1 5s linear forwards;
     -o-animation: test1 5s linear forwards;
@@ -972,8 +979,8 @@ nav svg {
     position: absolute;
     width: 250px;
     height: 150px;
-    bottom:4px;
-    left:4px;
+    bottom: 4px;
+    left: 4px;
 }
 
 #line {
@@ -1042,6 +1049,21 @@ nav svg {
         color: #0692ca;
     }
 
+.cpanel3_any_underlayout {
+    width: 106px;
+    height: 106px;
+    position: absolute;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    background-image: url('../images/dev_ass/Gauges/clock_inner.png');
+    left: 50%;
+    margin-left: -53px;
+    z-index: 1;
+}
 
 
 
@@ -1051,7 +1073,30 @@ nav svg {
     position: relative;
 }
 
-    .cpanel3_services_spiner canvas, .cpanel3_funding_spiner canvas, .cpanel3_investing_spiner canvas {
+.spiner {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%,-50%) rotateZ(-90deg);
+    -ms-transform: translate(-50%,-50%) rotateZ(-90deg);
+    -o-transform: translate(-50%,-50%) rotateZ(-90deg);
+    -webkit-transform: translate(-50%,-50%) rotateZ(-90deg);
+    transform: translate(-50%,-50%) rotateZ(-90deg);
+    -moz-transform-origin: 50%;
+    -ms-transform-origin: 50%;
+    -o-transform-origin: 50%;
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    z-index: 5;
+}
+
+#maskCoreservicesSpiner, #maskCorefundingSpiner, #maskCoreinvestingSpiner {
+    stroke-width: 103px;
+    stroke-dasharray: 321;
+    stroke-dashoffset: 321;
+}
+
+/*.cpanel3_services_spiner canvas, .cpanel3_funding_spiner canvas, .cpanel3_investing_spiner canvas {
         margin: 0 auto;
         position: relative;
         -moz-transform: translateY(-50%);
@@ -1061,7 +1106,8 @@ nav svg {
         transform: translateY(-50%);
         top: 50%;
         display: block;
-    }
+        z-index: 2;
+    }*/
 
 /*Cpanel4*/
 .content_cpanel4_wraper {
@@ -1430,38 +1476,74 @@ nav svg {
 
 @keyframes winSpin {
     0% {
+        -moz-transform: rotateZ(-180deg);
+        -ms-transform: rotateZ(-180deg);
+        -o-transform: rotateZ(-180deg);
+        -webkit-transform: rotateZ(-180deg);
         transform: rotateZ(-180deg);
     }
 
     30% {
+        -moz-transform: rotateZ(-170deg);
+        -ms-transform: rotateZ(-170deg);
+        -o-transform: rotateZ(-170deg);
+        -webkit-transform: rotateZ(-170deg);
         transform: rotateZ(-170deg);
     }
 
     50% {
+        -moz-transform: rotateZ(-165deg);
+        -ms-transform: rotateZ(-165deg);
+        -o-transform: rotateZ(-165deg);
+        -webkit-transform: rotateZ(-165deg);
         transform: rotateZ(-165deg);
     }
 
     60% {
+        -moz-transform: rotateZ(-150deg);
+        -ms-transform: rotateZ(-150deg);
+        -o-transform: rotateZ(-150deg);
+        -webkit-transform: rotateZ(-150deg);
         transform: rotateZ(-150deg);
     }
 
     70% {
+        -moz-transform: rotateZ(-160deg);
+        -ms-transform: rotateZ(-160deg);
+        -o-transform: rotateZ(-160deg);
+        -webkit-transform: rotateZ(-160deg);
         transform: rotateZ(-160deg);
     }
 
     80% {
+        -moz-transform: rotateZ(-162deg);
+        -ms-transform: rotateZ(-162deg);
+        -o-transform: rotateZ(-162deg);
+        -webkit-transform: rotateZ(-162deg);
         transform: rotateZ(-162deg);
     }
 
     85% {
+        -moz-transform: rotateZ(-159deg);
+        -ms-transform: rotateZ(-159deg);
+        -o-transform: rotateZ(-159deg);
+        -webkit-transform: rotateZ(-159deg);
         transform: rotateZ(-159deg);
     }
 
     90% {
+        -moz-transform: rotateZ(-140deg);
+        -ms-transform: rotateZ(-140deg);
+        -o-transform: rotateZ(-140deg);
+        -webkit-transform: rotateZ(-140deg);
         transform: rotateZ(-140deg);
     }
 
     100% {
+        -moz-transform: rotateZ(-135deg);
+        -ms-transform: rotateZ(-135deg);
+        -o-transform: rotateZ(-135deg);
+        -webkit-transform: rotateZ(-135deg);
         transform: rotateZ(-135deg);
     }
 }
@@ -2261,4 +2343,121 @@ input.btnInput {
     .wordpress_svg:hover svg path {
         fill: #ecf0f1;
     }
+
+/*CountDown styles*/
+div.coundown {
+    width: 72%;
+    margin: 0 auto;
+}
+
+.digit {
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 400;
+    color: #0692ca;
+    letter-spacing: 0.075em;
+    font-size: 1em;
+    position: absolute;
+    vertical-align: text-bottom;
+}
+
+.boxName {
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 300;
+    color: #ecf0f1;
+    letter-spacing: -0.005em;
+    font-size: 0.750em;
+    text-transform: lowercase;
+    vertical-align: middle;
+    height: 13px;
+    display: inline-block;
+    margin-left: 1px;
+}
+
+.points, .countDiv, .countMinutes {
+    display: none;
+}
+
+.countDays {
+    width: 48px;
+    float: left;
+}
+
+.countHours {
+    width: 56px;
+    float: left;
+}
+
+.countSeconds {
+    width: 67px;
+    float: left;
+}
+
+span.position {
+    position: relative;
+    width: 10px;
+    height: 20px;
+    display: block;
+    float: left;
+}
+
+.cpanel3_findout_services, .cpanel3_findout_funding, .cpanel3_findout_investing {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.findout_diagram_services, .findout_diagram_funding, .findout_diagram_investing {
+    width: 100%;
+    height: 80%;
+    display: block;
+    position: relative;
+}
+
+.diagram_layout {
+    width: 222px;
+    height: 222px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.servdiagram {
+    background-image: url('../images/dev_ass/Gauges/clock_more_orangr.png');
+}
+
+.funddiagram {
+    background-image: url('../images/dev_ass/Gauges/clock_more_green.png');
+}
+
+.invediagram {
+    background-image: url('../images/dev_ass/Gauges/clock_more_yellow.png');
+}
+
+svg.tiker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%,-50%) rotateZ(-90deg);
+    -ms-transform: translate(-50%,-50%) rotateZ(-90deg);
+    -o-transform: translate(-50%,-50%) rotateZ(-90deg);
+    -webkit-transform: translate(-50%,-50%) rotateZ(-90deg);
+    transform: translate(-50%,-50%) rotateZ(-90deg);
+    -moz-transform-origin: 50%;
+    -ms-transform-origin: 50%;
+    -o-transform-origin: 50%;
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+}
+
+#maskCoreservices, #maskCoreinvesting, #maskCorefunding {
+    stroke-width: 106px;
+    stroke-dasharray: 335;
+    stroke-dashoffset: 335;
+}
 /*FOOTER end*/

@@ -197,26 +197,110 @@
                 <div class="content_panel_row">
                     <div class="content_panel cpanel3">
                         <div class="content_cpanel3_border"></div>
-                        <div class="content_cpanel3_services">
-                            <div class="cpanel3_any_wraper">
-                                <div class="cpanel3_any_text">Day <span id="services_text_number">0</span></div>
-                                <div class="cpanel3_services_spiner">
+                        <div class="content_cpanel3_wrapper">
+                            <div class="content_cpanel3_services">
+                                <div class="cpanel3_any_wraper">
+                                    <div class="cpanel3_any_text">Day <span id="services_text_number">0</span></div>
+                                    <div class="cpanel3_services_spiner">
+                                        <svg class="spiner" width="202" height="202">
+                                            <mask id="mask-maskCoreServicesSpiner">
+                                                <g stroke="white" fill="none">
+                                                    <circle id="maskCoreservicesSpiner" cx="50%" cy="50%" r="51" />
+                                                </g>
+                                            </mask>
+                                            <g mask="url(#mask-maskCoreServicesSpiner)">
+                                                <image xlink:href="../js/ticker_orange.png" width="202" height="202" />
+                                            </g>
+                                        </svg>
+                                        <div class="cpanel3_any_underlayout"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content_cpanel3_funding">
+                                <div class="cpanel3_any_wraper">
+                                    <div class="cpanel3_any_text">Month <span id="funding_text_number">0</span></div>
+                                    <div class="cpanel3_funding_spiner">
+                                        <svg class="spiner" width="202" height="202">
+                                            <mask id="mask-maskFundingSpiner">
+                                                <g stroke="white" fill="none">
+                                                    <circle id="maskCorefundingSpiner" cx="50%" cy="50%" r="51" />
+                                                </g>
+                                            </mask>
+                                            <g mask="url(#mask-maskFundingSpiner)">
+                                                <image xlink:href="../js/ticker_green.png" width="202" height="202" />
+                                            </g>
+                                        </svg>
+                                        <div class="cpanel3_any_underlayout"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content_cpanel3_investing">
+                                <div class="cpanel3_any_wraper">
+                                    <div class="cpanel3_any_text">Year <span id="investing_text_number">0</span></div>
+                                    <div class="cpanel3_investing_spiner">
+                                        <svg class="spiner" width="202" height="202">
+                                            <mask id="mask-maskCoreInvestingSpiner">
+                                                <g stroke="white" fill="none">
+                                                    <circle id="maskCoreinvestingSpiner" cx="50%" cy="50%" r="51" />
+                                                </g>
+                                            </mask>
+                                            <g mask="url(#mask-maskCoreServicesSpiner)">
+                                                <image xlink:href="../js/ticker_yellow.png" width="202" height="202" />
+                                            </g>
+                                        </svg>
+                                        <div class="cpanel3_any_underlayout"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="content_cpanel3_funding">
-                            <div class="cpanel3_any_wraper">
-                                <div class="cpanel3_any_text">Month <span id="funding_text_number">0</span></div>
-                                <div class="cpanel3_funding_spiner">
-                                </div>
+                        <div class="cpanel3_findout_services">
+                            <div class="findout_diagram_services">
+                                <svg class="tiker" width="212" height="212">
+                                    <mask id="mask-maskCoreServices">
+                                        <g stroke="white" fill="none">
+                                            <circle id="maskCoreservices" cx="50%" cy="50%" r="53" />
+                                        </g>
+                                    </mask>
+                                    <g mask="url(#mask-maskCoreServices)">
+                                        <image xlink:href="../images/dev_ass/Gauges/s_ticker.png" width="212" height="212" />
+                                    </g>
+                                </svg>
+                                <div class="diagram_layout servdiagram"></div>
                             </div>
+                            <div id="countdown_services" class="findout_countdown_services coundown"></div>
                         </div>
-                        <div class="content_cpanel3_investing">
-                            <div class="cpanel3_any_wraper">
-                                <div class="cpanel3_any_text">Year <span id="investing_text_number">0</span></div>
-                                <div class="cpanel3_investing_spiner">
-                                </div>
+                        <div class="cpanel3_findout_funding">
+                            <div class="findout_diagram_funding">
+                                <svg class="tiker" width="212" height="212">
+                                    <mask id="mask-maskCoreFunding">
+                                        <g stroke="white" fill="none">
+                                            <circle id="maskCorefunding" cx="50%" cy="50%" r="53" />
+                                        </g>
+                                    </mask>
+                                    <g mask="url(#mask-maskCoreFunding)">
+                                        <image xlink:href="../images/dev_ass/Gauges/s_ticker.png" width="212" height="212" />
+                                    </g>
+                                </svg>
+                                <div class="diagram_layout funddiagram"></div>
                             </div>
+                            <div id="countdown_funding" class="findout_countdown_funding coundown"></div>
+                        </div>
+                        <div class="cpanel3_findout_investing">
+                            <div class="findout_diagram_investing">
+                                <svg class="tiker" width="212" height="212">
+                                    <mask id="mask-maskCoreInvesting">
+                                        <g stroke="white" fill="none">
+                                            <circle id="maskCoreinvesting" cx="50%" cy="50%" r="53" />
+                                        </g>
+                                    </mask>
+
+                                    <g mask="url(#mask-maskCoreInvesting)">
+                                        <image xlink:href="../images/dev_ass/Gauges/s_ticker.png" width="212" height="212" />
+                                    </g>
+                                </svg>
+                                <div class="diagram_layout invediagram"></div>
+                            </div>
+                            <div id="countdown_investing" class="findout_countdown_investing coundown"></div>
                         </div>
                     </div>
                     <div class="content_panel cpanel4">
@@ -437,6 +521,7 @@
     <!-- jQuery Js -->
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
     <!-- Custom JS -->
     <script src="js/index.js"></script>
     <!-- Adobe JS -->
@@ -445,7 +530,6 @@
     <script src="js/jquery.smoothwheel.js"></script>
     <!--<script src="js/howManyScroll.js"></script>-->
     <script src="js/jquery.countTo.js"></script>
-    <script src="js/circle-progress.js"></script>
     <script type="text/javascript">
         $(window).ready(function () {
             skrollr.init({
