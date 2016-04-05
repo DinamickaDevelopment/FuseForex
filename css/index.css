@@ -580,9 +580,9 @@ nav svg {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     color: #ecf0f1;
-    font-size: 1.5em;
+    font-size: 2.250em;
     font-weight: 300;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.075em;
     line-height: 44px;
     vertical-align: middle;
 }
@@ -590,7 +590,6 @@ nav svg {
 .cpanel2_services_numeric {
     font-family: 'Open Sans', sans-serif;
     color: #f15f40;
-    font-size: 1.5em;
     line-height: 57px;
     font-weight: 600;
 }
@@ -598,7 +597,6 @@ nav svg {
 .cpanel2_funding_numeric {
     font-family: 'Open Sans', sans-serif;
     color: #2cc98f;
-    font-size: 1.5em;
     line-height: 57px;
     font-weight: 600;
 }
@@ -606,7 +604,6 @@ nav svg {
 .cpanel2_investing_numeric {
     font-family: 'Open Sans', sans-serif;
     color: #fbba41;
-    font-size: 1.5em;
     line-height: 57px;
     font-weight: 600;
 }
