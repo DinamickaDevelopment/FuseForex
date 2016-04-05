@@ -1107,14 +1107,10 @@ nav svg {
     }*/
 
 /*Cpanel4*/
-.content_cpanel4_wraper {
-    width: 100%;
-    height: 55%;
-}
 
 .content_cpanel4_services, .content_cpanel4_investing, .content_cpanel4_funding {
-    position: absolute;
     width: 100%;
+    height: 55%;
     display: none;
 }
 
@@ -2457,4 +2453,42 @@ svg.tiker {
     stroke-dasharray: 335;
     stroke-dashoffset: 335;
 }
+
+.content_cpanel4_findout_services, .content_cpanel4_findout_funding, .content_cpanel4_findout_investing {
+    font-family: 'Open Sans',sans-serif;
+    width:100%;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+    text-align: center;
+    display:none;
+}
+
+.cpanel4_findout_title {
+    font-size: 2.25em;
+    font-weight: 600;
+    letter-spacing: 0.075em;
+    color: #ecf0f1;
+    margin: 4% 0 2% 0;
+}
+
+.cpanel4_findout_plaintext {
+    font-size: 1.688em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: #ecf0f1;
+    margin-bottom:5%;
+}
+
+.cpanel4_findout_signature {
+    font-size:1em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: #ecf0f1;
+}
+.cpanel4_findout_digit{
+    color: #f15f40;
+}
+.cpanel4_findout_digityellow{color:#fbba41;}
+.cpanel4_findout_greenLetter{color:#2cc98f;}
 /*FOOTER end*/

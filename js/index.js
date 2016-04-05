@@ -478,6 +478,10 @@ $(window).ready(function () {
                     function () {
                         $('.content_cpanel3_' + currentBlock).fadeIn(350, 'linear')
                     })
+                $('.content_cpanel4_findout_' + old).fadeOut(350, 'linear',
+                    function () {
+                        $('.content_cpanel4_' + currentBlock).fadeIn(350, 'linear')
+                    })
                 $('.cpanel5_closeIco').trigger('click');
             }
             $('.content_cpanel3_' + old).fadeOut(500, 'linear',
@@ -562,6 +566,11 @@ $(window).ready(function () {
                                             $('.cpanel3_findout_' + currentBlock).fadeIn(350, 'linear')
                                         })
 
+                                    $('.content_cpanel4_' + currentBlock).fadeOut(350, 'linear',
+                                        function () {
+                                            $('.content_cpanel4_findout_' + currentBlock).fadeIn(350, 'linear')
+                                        })
+
                                     $('.cpanel5').addClass('cpanel_sefborder_top');
                                     $('.content_cpanel5_border').css({ 'width': '0' });
                                     $('.cpanel5').animate({ height: '30%' }, 700, 'linear',
@@ -586,10 +595,15 @@ $(window).ready(function () {
                                     videoOpen = false;
                                     $('.content_cpanel2_' + currentBlock).fadeIn(350, 'linear')
                                 })
-                           
+
                             $('.cpanel3_findout_' + currentBlock).fadeOut(350, 'linear',
                                 function () {
                                     $('.content_cpanel3_' + currentBlock).fadeIn(350, 'linear')
+                                })
+
+                            $('.content_cpanel4_findout_' + currentBlock).fadeOut(350, 'linear',
+                                function () {
+                                    $('.content_cpanel4_' + currentBlock).fadeIn(350, 'linear')
                                 })
                             $('.cpanel5').removeClass('cpanel_sefborder_top');
                             $('.cpanel4').animate({ height: '100%' }, 700, 'linear', function () {
